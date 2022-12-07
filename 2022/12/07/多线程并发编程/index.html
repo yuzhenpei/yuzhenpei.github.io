@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        多线程并发编程 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text">什么是并发编程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E9%A2%91%E7%B9%81%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-text">并发编程挑战频繁的上下文切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E6%AD%BB%E9%94%81"><span class="toc-text">并发编程挑战死锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-text">并发编程挑战线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6"><span class="toc-text">并发编程挑战资源限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">线程的基础知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%81"><span class="toc-text">锁</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        多线程并发编程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2022-12-07 15:54:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#并发编程" title="并发编程">并发编程</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="什么是并发编程"><a href="#什么是并发编程" class="headerlink" title="什么是并发编程"></a>什么是并发编程</h4><ul>
+<li>串行和并行的区别：并行可以缩短整个流程的时间</li>
+<li>并发编程的目的:从某种程度上加快程序响应的速度（耗时任务，web服务器），简化异步事件的处理，让程序充分利用计算机资源</li>
+<li>什么时候适合使用并发编程：<ul>
+<li>任务会阻塞线程，导致之后的代码不能执行：比如一边从文件中读取，一边进行大量的计算的情况</li>
+<li>任务执行时间过长，可以划分为分工明确的子任务：比如分段下载</li>
+<li>任务间断性执行：日志打印</li>
+<li>任务本身需要协作执行：比如生产者消费者问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="并发编程挑战频繁的上下文切换"><a href="#并发编程挑战频繁的上下文切换" class="headerlink" title="并发编程挑战频繁的上下文切换"></a>并发编程挑战频繁的上下文切换</h4><ul>
+<li>上下文的频繁切换，会带来一定的性能开销</li>
+<li>如何减少上下文切换的开销？<ul>
+<li>无锁并发编程<ul>
+<li>无锁并发编程。多线程竞争锁时，会引起上下文切换，所以多线程处理数据时，可以用一些办法来避免使用锁，如将数据的id按照hash算法取模分段，不同的线程处理不同分段的数据</li>
+</ul>
+</li>
+<li>CAS<ul>
+<li>Java的Atomic包使用的CAS算法来更新数据，而不需要加锁</li>
+</ul>
+</li>
+<li>使用最少的线程<ul>
+<li>避免创建不需要的线程，比如任务很少，但是创建了很多线程来处理，这样会造成大量线程都处于等待状态</li>
+</ul>
+</li>
+<li>协程（go语言使用的多，就Java很少使用）</li>
+</ul>
+</li>
+</ul>
+<h4 id="并发编程挑战死锁"><a href="#并发编程挑战死锁" class="headerlink" title="并发编程挑战死锁"></a>并发编程挑战死锁</h4><ul>
+<li> 在cmd控制台输入jconsole可以查看是否出现死锁</li>
+</ul>
+<h4 id="并发编程挑战线程安全"><a href="#并发编程挑战线程安全" class="headerlink" title="并发编程挑战线程安全"></a>并发编程挑战线程安全</h4><ul>
+<li><pre><code class="java">public class UnSafeThread&#123;
+    private static int num=0;
+    private static CountDownLatch cdl=new CountDownLatch(10);
+    
+    
+    public static void inCreate()&#123;
+       num++;
+    &#125;
+    public static void main(String []args)&#123;
+    for(int i=0;i&lt;10;i++)&#123;
+        new Thread(()-&gt;&#123;
+          for(int j=0;j&lt;100;j++)&#123;
+          inCreate();
+          Thread.sleep(10)://会抛异常需要捕获
+          &#125;
+          //每个线程执行完成之后，调用countdownlatch
+          cdl.counyDown();
+&#125;).start();
+    &#125;
+    while(true)&#123;
+      if(cdl.getCount()==0)&#123;
+         System.out.println(num);
+         break;
+      &#125;
+    &#125;
+    &#125;
+
+&#125;
+</code></pre>
+</li>
+</ul>
+<h4 id="并发编程挑战资源限制"><a href="#并发编程挑战资源限制" class="headerlink" title="并发编程挑战资源限制"></a>并发编程挑战资源限制</h4><ul>
+<li>硬件资源<ul>
+<li>带宽的上传和下载熟读，硬盘的读写速度和CPU的处理速度</li>
+</ul>
+</li>
+<li>软件资源<ul>
+<li>数据库连接 500个连接，1000个线程查询，并不会因此加快，socket（最大打开数）</li>
+</ul>
+</li>
+</ul>
+<h4 id="线程的基础知识"><a href="#线程的基础知识" class="headerlink" title="线程的基础知识"></a>线程的基础知识</h4><ul>
+<li><p>进程和线程的区别</p>
+<ul>
+<li>进程：是系统进行分配和管理资源的基本单位</li>
+<li>线程：进程的一个执行单元，是进程内调度的实体，是CPU调度和分配和分派的基本单位，是比进程更小的独立运行的基本单位。线程也被称为轻量级进程，线程是程序执行的最小单位</li>
+<li>一个程序至少一个进程，一个进程至少一个线程</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段，堆栈段和数据段，这种操作十分昂贵</li>
+<li>而线程是共享进程中的数据的 ，使用相同的地址空间，因此cpu切换一个进程的花费远比进程要小很多 ，同时创建一个线程的开销也比进程要小很多</li>
+<li>线程之间的通信更方便，同一个进程下的先后才能共享全局变量，静态变量等数据，而进程之间的通信需要以通信的方式进行</li>
+<li>如何处理好同步与互斥是编写多线程程序的难点</li>
+<li>多进程程序更健壮，进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其他的进程产生影响，而线程只是进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间，没有独立的地址空间，所以可能一个线程出现问题，进而导致整个程序出现问题</li>
+</ul>
+</li>
+<li><p>线程的状态及其相互转换</p>
+<ul>
+<li><p>初始(NEW)：新创建了一个线程对象，但还没有调用start()方法</p>
+</li>
+<li><p>运行(runnable)：chuy7u可运行状态的线程在JVM中执行，但他可能正在等待来自操作系统的其他资源，例如处理器</p>
+</li>
+<li><p>阻塞(blocked)：线程阻塞与synchronized锁，等待获取synchronized锁的状态</p>
+</li>
+<li><p>等待(waiting)：Obiect.wait(),join(),LockSupport.park(),进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）</p>
+</li>
+<li><p>超时等待(time_waiting):</p>
+<p>Object.wait(long),Thread.join(),LockSupport.parkNanos(),LockSupport.parkUntil，该状态不同于waiting，他可以在指定的时间内自行返回</p>
+</li>
+<li><p>终止(terminated)：表示该线程已经执行完毕</p>
+</li>
+<li><p>他们之间的相互转换</p>
+<p><img src="https://picgo-1309496466.cos.ap-chongqing.myqcloud.com/pic/image-20220913094152576.png"></p>
+</li>
+</ul>
+</li>
+<li><p>创建线程上</p>
+<ul>
+<li><p>第一种是直接继承Thread，并重写父类的run方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">   <span class="meta">@Override</span><span class="comment">//重写run方法</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">      System.out.println(Thread.currentThread.getName());</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String []args)</span>&#123;</span><br><span class="line">     MyThread myThread=<span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">     mythread.setName(<span class="string">&quot;余贞佩真帅&quot;</span>);</span><br><span class="line">     myThread.start();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>()第二种直接实现Runable接口，并实现run方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class MyRunable implements Runable&#123;</span><br><span class="line">   @Override//重写run方法</span><br><span class="line">   public void run()&#123;</span><br><span class="line">     System.out.println(Thread.currentThread().getName());</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   public static void main(String []args)&#123;</span><br><span class="line">      Thread thread=new Thread(new MyRunable());</span><br><span class="line">      thread.setName(&quot;余贞佩是帅哥&quot;);</span><br><span class="line">      thread.start();</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      //不使用thread.start而直接使用run的话,不会启动线程，只会启动原本的线程，在实际开发中需要用thread.start()</span><br><span class="line">      thread.run();</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>实际开发中，选第二种，因为Java只支持单继承，支持多接口，还可以增加程序的健壮性，代码可以共享，代码和数据相对独立</p>
+</li>
+</ul>
+</li>
+<li><p>创建线程下</p>
+<ul>
+<li><p>使用匿名内部类的方式（也是runnable）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class MyThread&#123;</span><br><span class="line">   public static void main(String []args)&#123;</span><br><span class="line">   Thread thread=new Thread(new Runnable()&#123;</span><br><span class="line">     @Override</span><br><span class="line">      public void run()&#123;</span><br><span class="line">      System.out.println(&quot;余贞佩真帅&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   );</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用Lambda</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Lambda&#123;</span><br><span class="line">    public static void main(String []args)&#123;</span><br><span class="line">    new Thread(()-&gt;&#123;</span><br><span class="line">       System.out.println(&quot;余贞佩真帅&quot;);</span><br><span class="line">    &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用线程池的方法ExecutorService</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadPool&#123;</span><br><span class="line">   public static void main(String []args)&#123;</span><br><span class="line">   ExecutorService executorSevice=Executor.newSingleThreadExecutor();</span><br><span class="line">   executorService.execute(()-&gt;&#123;</span><br><span class="line">   System.out.println(&quot;余贞佩真帅&quot;);</span><br><span class="line"> </span><br><span class="line">   &#125;);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>线程的挂起和恢复</p>
+<ul>
+<li><p>什么是挂起线程</p>
+<ul>
+<li>线程的挂起操作实质上就是使线程进入“非可执行”状态，在这个状态下cpu不会分给线程时间片，进入这个状态可以用来暂停一个线程的运行，在线程挂起后，可以通过重新唤醒线程来恢复运行</li>
+</ul>
+</li>
+<li><p>为什么要挂起线程</p>
+<ul>
+<li>cpu分配的时间片非常短，同时也非常珍贵，避免资源的浪费</li>
+</ul>
+</li>
+<li><p>如何挂起线程</p>
+<ul>
+<li><p>thread.suspend();//挂起   不会释放线程所占用的资源，如果使用该方法将某个线程挂起，则可能使其他等待资源的线程死锁</p>
+</li>
+<li><p>thread.resume();//唤醒       脱离了suspend就无法使用，无法单独使用。这两个方法不用了</p>
+</li>
+<li><p>可以使用的方法</p>
+<ul>
+<li><p>wait();//暂停执行，放弃已获得的锁，进入等待状态</p>
+</li>
+<li><p>notify();//随机唤醒一个在等待锁的进程</p>
+</li>
+<li><p>notifyAll();//唤醒所有在等待锁的进程，自行抢占cpu资源</p>
+</li>
+<li><p>```<br>public class WaitDemo{</p>
+<pre><code> private  static Object waObject=new Object();
+ @Override
+ public void run()&#123;
+ //特有资源
+ synchronized(waObject)&#123;
+  System.out.println(&quot;yuzhenpe&quot;+&quot;余贞佩&quot;);
+  waObject.wait();//这里需要捕获异常
+ &#125;
+ System.out.println(&quot;太帅了&quot;);
+</code></pre>
+<p>}<br>   public static void main(String []args){<br>   Thread thread=new Thread(new WaitDemo(),name”线程名字”);<br>   thread.start();<br>   Thread.sleep(1000L)//休眠一秒钟<br>   synchronized(waObject){<br>   waObject.notify();<br>}<br>   }<br>}</p>
+<p>注意：在使用的时候需要注意两个都需要持有锁，并且都需要是锁住的是相同的对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  + 什么时候适合使用挂起线程</span><br><span class="line"></span><br><span class="line">    我等的船还不来（等待某些未就绪的资源，让出时间片给其他的线程，直到notify唤醒）</span><br><span class="line"></span><br><span class="line">+ 线程的中断操作</span><br><span class="line"></span><br><span class="line">  + stop();//已经废弃的方法，不要使用。因为一调用，线程就立刻停止，此时有可能引发相应的线性安全性问题</span><br><span class="line"></span><br><span class="line">  + interrupt();方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>public class InterruptDemo implements  Runnable{<br>@Override<br>public void run(){<br>  while(!Thread.currentThread().isInterrupt()){//判断是否被interrupt方法标记了中断线程</p>
+<pre><code>  System.out.println(&quot;余贞佩真帅&quot;);
+</code></pre>
+<p>  }<br>}</p>
+<p>public static void main(String []args){<br>   Thread thread=new Thread(new InterruptDemo());<br>   thread.start();<br>   Thread.sleep(3000L);<br>   thread.interrupt();//调用这个方法会给线程标记中断线程的标记<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 通过volatile来定义变量来实现</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>public class MyInterruptDemo imlements Runnable{</p>
+<pre><code>private static volatile boolean flag=ture;//这里一定需要加volatile关键字
+@Override
+public void run()&#123;
+while(flag)&#123;
+  System.out.println(&quot;余贞佩真帅&quot;);
+&#125;
+&#125;
+public static void main(String []args)&#123;
+  Thread thread=new Thread(new MyInterruptDemo());
+  thread.start();
+  Thread.sleep(1000L);
+  flag=false;//通过修改volatile修饰的变量来控制退出循环中断线程
+&#125;
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 线程的优先级</span><br><span class="line"></span><br><span class="line">  + 线程的优先级会告诉程序该线程的重要程度。如果大量线程都被堵塞，都在等候运行，那么程序会尽可能的优先运行优先级高的线程。不代表优先级低的线程不会被运行，只是被运行的机会比较少</span><br><span class="line"></span><br><span class="line">  + 设置线程的优先级</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>public class PriorityDemo{</p>
+<pre><code> public static void main(String []args)&#123;
+   
+   Thread thread1=new Thread(()-&gt;&#123;
+       System.out.println(Thread.currentThread().getName()+&quot;余贞佩真帅&quot;);
+   &#125;,&quot;线程1&quot;);
+   Thread thread2=new Thread(()-&gt;&#123;
+       System.out.println(Thread.currentThread().getName()+&quot;余贞佩真帅&quot;);
+   &#125;,&quot;线程2&quot;);
+   thread1.setPriority(MIN);//设置为1到10之间的整数，Priority提供了1,5,10三种（建议）
+   thread2.setPrioity(MAX);
+   thread1.start();
+   thread2.start();
+ &#125;
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  + 线程优先级可以设置为1-10的任意数值，Thread类定义了三个数值表示线程优先级，MIN_PRIORity(1);NORM_PRIORITY(5);MAX_PRIORITY(10);一般情况推荐使用这三种，不要自行设置数值</span><br><span class="line"></span><br><span class="line">  + 不同的平台对线程优先级的支持不同</span><br><span class="line"></span><br><span class="line">    + 编程的时候不要过度依赖线程优先级，如果程序的运行是否正确取决于你设置的优先级是否按所设置的优先级运行，那这样的程序不正确</span><br><span class="line"></span><br><span class="line">  + 任务是快速处理就设置为优先级高</span><br><span class="line"></span><br><span class="line">  + 任务是慢慢处理就设置为优先级低（但是得保证不影响程序运行）</span><br><span class="line"></span><br><span class="line">+ 守护线程</span><br><span class="line"></span><br><span class="line">  + 线程分类：用户线程，守护线程</span><br><span class="line"></span><br><span class="line">  + 守护线程</span><br><span class="line"></span><br><span class="line">    + 任何一个守护线程都是用户线程的守护者，只要有用户线程活着，守护线程就活着。在JVM实例中最后一个非守护线程结束时，也随JVM一起退出</span><br><span class="line">    + 作用：JVM垃圾清理线程</span><br><span class="line"></span><br><span class="line">  + 在开发中少使用守护线程，因为其不可控，容易在运行到一半的时候随着用户线程的消失而消失，如果一定要使用守护线程，也不要在守护线程进行读写计算等逻辑</span><br><span class="line"></span><br><span class="line">  + 在Java中设置守护线程</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>public static void main(String []args){</p>
+<pre><code>  Thread thread=new Thread(new Yzp());
+  thread.setDaemo(ture);//系统默认false
+  thread.start();
+  //注意，设置为守护线程一定需要在thread.start()之前，在之后不会被设置为守护线程
+</code></pre>
+<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 线程安全</span><br><span class="line"></span><br><span class="line">+ 线程安全性问题</span><br><span class="line"></span><br><span class="line">  + 什么是线程安全性</span><br><span class="line">    + 当多个线程访问某个类，不管运行环境如何调度或线程如何交替执行，并且在主调代码中不需要任何额外的同步或者协同，这个 类都能做出正确的行为，那么这个类是线程安全的</span><br><span class="line">  + 什么是线程不安全</span><br><span class="line">    + 多线程并发访问的时候，得不到正确的结果</span><br><span class="line"></span><br><span class="line">+ 从字节码剖析线程不安全操作</span><br><span class="line"></span><br><span class="line">  + 例子：num++不是原子性操作，被拆分为多个步骤，在多线程并发执行的时候，因为cpu的调度，多线程快速切换，有可能多个线程在同一个时刻读取了同一个num的值，然后对相同的num值进行++，得不到正确的结果，导致线程安全性问题</span><br><span class="line"></span><br><span class="line">+ 原子性操作</span><br><span class="line"></span><br><span class="line">  + 什么是原子性操作</span><br><span class="line"></span><br><span class="line">    一个操作或多个操作在执行的过程中不会被任何因素阻断，要么都不执行</span><br><span class="line"></span><br><span class="line">  + 如何把非原子性操作变为原子性操作</span><br><span class="line"></span><br><span class="line">    + volatile关键字仅仅保证可见性，并不能保证原子性</span><br><span class="line"></span><br><span class="line">    + synchronized关键字，可以使操作具有原子性</span><br><span class="line"></span><br><span class="line"> + synchronized关键字</span><br><span class="line"></span><br><span class="line">   + 内置锁</span><br><span class="line"></span><br><span class="line">     每一个Java对象，都可以用做一个实现同步的锁，这些锁称为内置锁。线程进入同步代码块或者方法的时候会自动获得该锁，在退出同步代码块或者方法的时候会释放该锁</span><br><span class="line"></span><br><span class="line">     获得内置锁的唯一途径是进入这个锁所保护的同步代码块或方法</span><br><span class="line"></span><br><span class="line">   + 互斥锁</span><br><span class="line"></span><br><span class="line">     + 内置锁是一个互斥锁，这就意味着最多只有一个线程可以获得这个锁，当线程a尝试获得线程b所持有的锁的时候，线程a会进入堵塞或者等待状态，直到线程b释放这个锁</span><br><span class="line">     + 如果线程b一直不释放锁，那么线程a就会一直等待或者堵塞</span><br><span class="line"></span><br><span class="line">   + 修饰普通方法：锁住的是类的实例`public synchronized void test()`</span><br><span class="line"></span><br><span class="line">   + 修饰静态方法：锁住的是整个类（最好不要用）`public static synchronized`staticTest()</span><br><span class="line"></span><br><span class="line">   + 修饰代码块：锁住的是一个对象。锁住的是synchronized括号后面的那个对象</span><br><span class="line"></span><br><span class="line">     + ```</span><br><span class="line">       public void yzp()&#123;</span><br><span class="line">          synchronized(对象)&#123;</span><br><span class="line">          </span><br><span class="line">          &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>volatile关键字</p>
+<ul>
+<li>能且仅能修饰变量</li>
+<li>保证变量的可见性，但是不能保证原子性</li>
+<li>禁止指令重排序</li>
+<li>比如：A,B两个线程同时读取被volatile修饰的对象，A线程的读取过后修改了变量的值，修改的值对于B线程来说是可见的</li>
+<li>使用场景<ul>
+<li>作为线程的开关</li>
+<li>单例，修饰对象的实例，禁止指令重排序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单例与线程安全</p>
+<ul>
+<li><p>饿汉式（本身线程安全）不需要加锁</p>
+<p>在类加载的时候就已经实例化，不管用不用的到。如果该类占内存大，且后面也用不到，就白白浪费了资源</p>
+<ul>
+<li>在idea有一个Singleton可以帮我们创建</li>
+</ul>
+</li>
+<li><p>懒汉式（最简单的写法是非线程安全的）</p>
+<p>在需要的时候在进行实例化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class LazySingleton&#123;</span><br><span class="line">      praivate static volatile LazySingle=null;//在这里需要volatile关键字来禁止指令重排序</span><br><span class="line">      private LazySingle()&#123;//私有化</span><br><span class="line">&#125;</span><br><span class="line">     public static LazySingleton getInstance()&#123;</span><br><span class="line">     //判断实例化是否为空，为空则实例化对象，否者直接返回</span><br><span class="line">     if(null==lazySingle)&#123;</span><br><span class="line">       Thread.sleep();//这里需要抛出异常</span><br><span class="line">       synchronized(LazySingle.class)&#123;</span><br><span class="line">         if(null==lazySingle)&#123;</span><br><span class="line">          lazysinglr=new LazySingle();</span><br><span class="line">&#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return lazySingle;</span><br><span class="line">     </span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">这样是线程安全的</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>如何避免线程安全性问题</p>
+<ul>
+<li><p>产生线程安全性的原因</p>
+<ul>
+<li>多线程环境</li>
+<li>多个线程操作同一个共享资源</li>
+<li>对该共享资进行了非原子性操作</li>
+</ul>
+</li>
+<li><p>如何避免</p>
+<p>打破三个成因其中一个</p>
+<ul>
+<li>将多线程变为单线程（必要的代码，加锁访问）</li>
+<li>不共享资源（ThreadLocal,不共享，或者将操作变为无状态，将变量变为不可变变量（final））</li>
+<li>将非原子性操作变为原子性操作（加锁，使用jdk自带的原子性操作的类，juc提供的相应的并发工具类）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><ul>
+<li><p>锁的分类</p>
+<img src="https://picgo-1309496466.cos.ap-chongqing.myqcloud.com/pic/image-20220915162626728.png" style="zoom: 50%;" />
+
+<img src="https://picgo-1309496466.cos.ap-chongqing.myqcloud.com/pic/image-20220915162807317.png" style="zoom:50%;" /></li>
+<li><p>深入理解Lock接口</p>
+<ul>
+<li><p>Lock的使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private static Lock lock=new ReeentrantLock();</span><br><span class="line">public static void inCreate()&#123;</span><br><span class="line">   lock.lock();//在需要加锁的方法内加锁</span><br><span class="line">   num++;</span><br><span class="line">   lock.unlock();//需要手动的解锁</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>lock和synchronized的区别</p>
+<ul>
+<li>lock需要手动的加锁和解锁，synchronized则是托管给jvm去实现</li>
+<li>synchronized的机制是悲观锁，每个线程都是独占锁，独占锁意味着其他的锁只能依靠堵塞来等待释放锁</li>
+<li>lock是乐观锁，实现CAS操作</li>
+<li>而synchronized现在与lock的性能差不多</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现自己的锁（具有重入的功能）</p>
+<ul>
+<li><pre><code>public class MyLock implements Lock&#123;
+    
+    private boolean isHoldLock=false;
+    private Thread holdLockThread=null;
+    private int reentryCount=0;
+
+    //重写Lock类的方法
+    //在同一时刻有且只有一个线程能获的锁，其他的线程需要等待这个线程释放锁后才能获得锁
+    @Override
+    public synchronized void lock()&#123;//需要用到wait和notify方法所以需要在方法上面上锁
+        if(isHoldLock&amp;&amp;holdLockThread!=Thread.currentThread())&#123;
+              wait();//这里需要抛出异常
+        &#125;
+        holdLockThread=Thread.currentThread();
+        isHoldLock=true;  
+    &#125;
+    @Override
+    public synchronized void unlock()&#123;
+    //判断当前线程是否持有锁，如果是，重入数就减一，不是就不做处理
+       if(Thread.currentThread==holdLockThread)&#123;
+           reentryCount--;
+          if(reentryCount==0)&#123;
+           notify();
+           isHoldLock=false;
+          &#125;
+      &#125;
+    &#125;
+
+&#125;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>AbstractQueuedSynchronizer浅析</p>
+</li>
+<li><p>ReentrantLock源码（new的时候带参数TRUE就是公平锁，不带参就是非公平锁）</p>
+</li>
+<li><p>ReentrantLock公平锁和非公平锁的区别</p>
+<ul>
+<li>公平锁遵守排队规则，比如在公共厕所上厕锁，只要前面的在排队，那么刚进来的就会老老实实的排队</li>
+<li>非公平锁有点像流氓，只要当前有空的坑位，他就会直接霸占，不管后面排队的人。只要有机会就会抢占资源</li>
+</ul>
+</li>
+<li><p>非公平锁的弊端</p>
+<ul>
+<li>可能导致后面等待的线程等不到相应的cpu资源从而引起线程饥饿</li>
+</ul>
+</li>
+<li><p>掌控线程的执行顺序之多线程Debug</p>
+<ul>
+<li>在使用ReentrantLock类的时候释放锁的操作需要放在异常finally里面</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
