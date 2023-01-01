@@ -12,7 +12,7 @@
 
     <title>
         
-        Tags - yzpcode 日常
+        最大数 - yzpcode 日常
         
     </title>
 
@@ -75,7 +75,7 @@
                     <span>主页</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
@@ -110,6 +110,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E6%95%B0"><span class="toc-text">最大数</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -136,96 +140,46 @@
         <!-- Main Content -->
         
 
-<div id='tag_cloud' class="tags">
-    
-    <a href="#并发编程" class="tag-triangle" title="并发编程"><i class="tag-i">并发编程</i></a>
-    
-    <a href="#力扣刷题" class="tag-triangle" title="力扣刷题"><i class="tag-i">力扣刷题</i></a>
-    
-    <a href="#HTML和CSS" class="tag-triangle" title="HTML和CSS"><i class="tag-i">HTML和CSS</i></a>
-    
-</div>
 
-<!-- 标签列表 -->
-
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="并发编程">
-                    <span class="tag-text">并发编程</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2022/12/07/多线程并发编程/">
-            <h2 class="post-title">
-                多线程并发编程
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+<div class="post-container">
+    <div class="post-title">
+        最大数
     </div>
-    
-</div>
 
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="力扣刷题">
-                    <span class="tag-text">力扣刷题</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2022/12/28/买卖股票的最佳时机/">
-            <h2 class="post-title">
-                买卖股票的最佳时机
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-01-01 11:44:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#力扣刷题" title="力扣刷题">力扣刷题</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2023/01/01/最大数/">
-            <h2 class="post-title">
-                最大数
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
+    <div class="post-content ">
+        <h4 id="最大数"><a href="#最大数" class="headerlink" title="最大数"></a>最大数</h4><ul>
+<li><p>题目：</p>
+<p><img src="https://picgo-1309496466.cos.ap-chongqing.myqcloud.com/pic/%E6%9C%80%E5%A4%A7%E6%95%B0.png"></p>
+</li>
+<li><p>题解：最大数就是将最大的组成放在前面，如示例2里面的<code>3和30比较，330和303，就是330更大，所以元素3在30之前</code>，将数字数组中的对应元素转为字符串数组中，然后用<code>compareTo()</code>方法进行比较，它是从头开始比较字符串对应的<code>AscII码</code>值，如果第一个字符相等，就比较后面一个，然后我们用快速排序方法<code>Arrays.sort()</code>的<code>lambda表达式</code>方式，具体的<code>Arrays.sort()中的lambda表达式</code>讲解<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41030039/article/details/100176410"></a></p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyAnswer</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">largestNumber</span><span class="params">(<span class="type">int</span> []nums)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        String[] array = <span class="keyword">new</span> <span class="title class_">String</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            array[i] = String.valueOf(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//a.concat(b)方法是将两个字符串拼接在一起</span></span><br><span class="line">        Arrays.sort(array,(a,b)-&gt;b.concat(a).compareTo(a.concat(b)));</span><br><span class="line">        <span class="comment">//如果第一个元素就是0；那么后面的都比零小，所以直接返回0</span></span><br><span class="line">        <span class="keyword">if</span>(array[<span class="number">0</span>].equals(<span class="string">&quot;0&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            sb.append(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="HTML和CSS">
-                    <span class="tag-text">HTML和CSS</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2022/12/06/HTML和CSS基础/">
-            <h2 class="post-title">
-                HTML和CSS基础
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
     </div>
-    
 </div>
-
 
     </div>
 </div>
@@ -282,7 +236,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
