@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        springboot项目实战 - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%92%8C%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-text">创建项目和添加依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E9%80%9A%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">打通数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E7%83%AD%E9%83%A8%E7%BD%B2%E5%92%8C%E5%BC%80%E5%8F%91%E7%BB%9F%E4%B8%80JSON%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">开启热部署和开发统一JSON数据格式工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-text">自定义异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E6%8E%A5%E5%8F%A3"><span class="toc-text">用户注册接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3"><span class="toc-text">用户登录接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Guava%E7%BC%93%E5%AD%98"><span class="toc-text">Guava缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis"><span class="toc-text">Redis</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        springboot项目实战
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-03-31 22:08:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Java" title="Java">Java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h4 id="创建项目和添加依赖"><a href="#创建项目和添加依赖" class="headerlink" title="创建项目和添加依赖"></a>创建项目和添加依赖</h4><ul>
+<li><p><strong>在线创建项目</strong></p>
+<ul>
+<li>地址：<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></li>
+</ul>
+</li>
+<li><p><strong>添加依赖</strong></p>
+<ul>
+<li><p>springboot核心包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">      &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">      &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">          &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">      &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>mybatis依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.1.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>mysql驱动（注意需要去掉runtime，否则会报错）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>通用工具包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.12.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>跨域身份验证解决方案 Json web token包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- JWT相关 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jjwt&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.7.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>高性能缓存组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--guava依赖包--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;19.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="打通数据库"><a href="#打通数据库" class="headerlink" title="打通数据库"></a>打通数据库</h4><ul>
+<li><p><strong>添加数据库配置</strong>(在<code>application.properties</code>)</p>
+</li>
+<li><p>配置文件中添加)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server.port=8081</span><br><span class="line"></span><br><span class="line">#==============================数据库相关配置========================================</span><br><span class="line">spring.datasource.driver-class-name =com.mysql.cj.jdbc.Driver</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/online_class_yzpcode?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=1234</span><br><span class="line">#使用阿里巴巴druid数据源，默认使用自带的</span><br><span class="line">#spring.datasource.type =com.alibaba.druid.pool.DruidDataSource</span><br><span class="line">#开启控制台打印sql</span><br><span class="line">mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl</span><br><span class="line"></span><br><span class="line"># mybatis 下划线转驼峰配置,两者都可以</span><br><span class="line">#mybatis.configuration.mapUnderscoreToCamelCase=true</span><br><span class="line">mybatis.configuration.map-underscore-to-camel-case=true</span><br><span class="line">#配置扫描</span><br><span class="line">mybatis.mapper-locations=classpath:mapper/*.xml</span><br><span class="line">#配置xml的结果别名</span><br><span class="line">mybatis.type-aliases-package=xyz.yzpcode.online_class.domain</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="开启热部署和开发统一JSON数据格式工具类"><a href="#开启热部署和开发统一JSON数据格式工具类" class="headerlink" title="开启热部署和开发统一JSON数据格式工具类"></a>开启热部署和开发统一JSON数据格式工具类</h4><ul>
+<li><p><strong>热部署设置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;  </span><br><span class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  </span><br><span class="line">         &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;  </span><br><span class="line">         &lt;optional&gt;true&lt;/optional&gt;  </span><br><span class="line">  &lt;/dependency&gt;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;fork&gt;true&lt;/fork&gt;&lt;!--必须添加这个配置--&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>需要在<code>idea</code>中<code>compiler</code>开启 <code>build project automatically</code> 然后按住<code>shift+Ctrl+alt+/ </code>选择<code>registry </code>选择<code>auto when app running</code>然后重启<code>idea</code>即可</p>
+</li>
+<li><p><strong>JsonData工具类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">public class JsonData &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 状态码  0表示成功   1表示处理中  -1表示失败</span><br><span class="line">     */</span><br><span class="line">    private Integer code;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 业务数据</span><br><span class="line">     */</span><br><span class="line">    private Object data;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 信息显示</span><br><span class="line">     */</span><br><span class="line">    private String msg;</span><br><span class="line"></span><br><span class="line">    JsonData()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    JsonData(Integer code,Object data,String msg)&#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">        this.data = data;</span><br><span class="line">        this.msg  = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 成功   不返回数据</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static JsonData buildSuccess()&#123;</span><br><span class="line">        return new JsonData(0,null,null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 成功   返回数据</span><br><span class="line">     * @param data</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static JsonData buildSuccess(Object data)&#123;</span><br><span class="line">        return new JsonData(0,data,null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 失败    固定状态码</span><br><span class="line">     * @param msg</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static JsonData buildError(String msg)&#123;</span><br><span class="line">        return new JsonData(-1,null,msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 失败   自定义状态码</span><br><span class="line">     * @param code</span><br><span class="line">     * @param msg</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static JsonData buildError(Integer code,String msg)&#123;</span><br><span class="line">        return new JsonData(code,null,msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getCode() &#123;</span><br><span class="line">        return code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(Integer code) &#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Object getData() &#123;</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setData(Object data) &#123;</span><br><span class="line">        this.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getMsg() &#123;</span><br><span class="line">        return msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setMsg(String msg) &#123;</span><br><span class="line">        this.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h4><ul>
+<li><p>自定义异常  继承RuntimeException</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 自定义全局异常</span><br><span class="line"> */</span><br><span class="line">public class YZPException  extends RuntimeException&#123;</span><br><span class="line"></span><br><span class="line">    private Integer code;</span><br><span class="line"></span><br><span class="line">    private String msg;</span><br><span class="line"></span><br><span class="line">    public YZPException(Integer code,String msg)&#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">        this.msg  = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getCode() &#123;</span><br><span class="line">        return code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(Integer code) &#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getMsg() &#123;</span><br><span class="line">        return msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setMsg(String msg) &#123;</span><br><span class="line">        this.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>开发异常处理器 ExceptionHandle</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 异常处理类</span><br><span class="line"> */</span><br><span class="line">@ControllerAdvice</span><br><span class="line">public class CustomExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    private final static Logger logger =  LoggerFactory.getLogger(CustomExceptionHandler.class);</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(value = Exception.class)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public JsonData handle(Exception e)&#123;</span><br><span class="line">        logger.error(&quot;[ 系统出错 ] &quot;,e);</span><br><span class="line">        if( e instanceof YZPException)&#123;</span><br><span class="line"></span><br><span class="line">            YZPException yzpException = (YZPException) e;</span><br><span class="line">            return JsonData.buildError(yzpException.getCode(),yzpException.getMsg());</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return JsonData.buildError(&quot;全局异常，未知错误&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="用户注册接口"><a href="#用户注册接口" class="headerlink" title="用户注册接口"></a>用户注册接口</h4><ul>
+<li><p><strong>保证注册手机号的唯一性</strong></p>
+<ul>
+<li>可以在数据库建表的时候将phone字段添加唯一约束unique</li>
+<li>可以在用户注册的时候，根据前端传来的手机号在数据库中查找，保证唯一</li>
+</ul>
+</li>
+<li><p><strong>MD5 密码加密</strong></p>
+<ul>
+<li><p>建一个工具类(将代码拷过去就能直接使用)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static String MD5(String data)  &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            java.security.MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);</span><br><span class="line">            byte[] array = md.digest(data.getBytes(&quot;UTF-8&quot;));</span><br><span class="line">            StringBuilder sb = new StringBuilder();</span><br><span class="line">            for (byte item : array) &#123;</span><br><span class="line">                sb.append(Integer.toHexString((item &amp; 0xFF) | 0x100).substring(1, 3));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            return sb.toString().toUpperCase();</span><br><span class="line">        &#125; catch (Exception exception) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="用户登录接口"><a href="#用户登录接口" class="headerlink" title="用户登录接口"></a>用户登录接口</h4><ul>
+<li><p>JWT工具类开发</p>
+<ul>
+<li><p>pom文件添加依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- JWT相关 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;jjwt&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;0.7.0&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>封装生产token方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 根据用户信息，生成令牌</span><br><span class="line">     * @param user</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static String geneJsonWebToken(User user)&#123;</span><br><span class="line">        String token = Jwts.builder().setSubject(SUBJECT)</span><br><span class="line">                .claim(&quot;head_img&quot;,user.getHeadImg())</span><br><span class="line">                .claim(&quot;id&quot;,user.getId())</span><br><span class="line">                .claim(&quot;name&quot;,user.getName())</span><br><span class="line">                .setIssuedAt(new Date())</span><br><span class="line">                .setExpiration(new Date(System.currentTimeMillis()+EXPIRE))</span><br><span class="line">                .signWith(SignatureAlgorithm.HS256,SECRET).compact();</span><br><span class="line">        token = TOKEN_PREFIX + token;</span><br><span class="line">        return token;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>封装校验token方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    * 校验 token 方法</span><br><span class="line">    * @param token</span><br><span class="line">    * @return</span><br><span class="line">    */</span><br><span class="line">   public static Claims checkJWT(String token)&#123;</span><br><span class="line">     try  &#123;</span><br><span class="line">         final Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX, &quot;&quot;)).getBody();</span><br><span class="line">         return claims;</span><br><span class="line">     &#125;catch (Exception e)&#123;</span><br><span class="line">         return null;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * JWT工具类</span><br><span class="line"> * 1.生成的token，可以通过 base64 解密出明文信息</span><br><span class="line"> * 2.base64 解密出的明文，再次进行编码，秘钥会失效</span><br><span class="line"> * 3.无法作废以颁布的 token ，除非修改秘钥</span><br><span class="line"> */</span><br><span class="line">public class JWTUtils &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 过期时间，一周</span><br><span class="line">     */</span><br><span class="line">    private static final long EXPIRE = 60000 *60 *24 *7;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 加密秘钥</span><br><span class="line">     */</span><br><span class="line">    private static final String SECRET = &quot;yzpcode.xyz2644&quot;;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 令牌前缀</span><br><span class="line">     */</span><br><span class="line">    private static final String TOKEN_PREFIX = &quot;yzpcode&quot;;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * subject</span><br><span class="line">     */</span><br><span class="line">    private static final String SUBJECT = &quot;yzpcode&quot;;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 根据用户信息，生成令牌</span><br><span class="line">     * @param user</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static String geneJsonWebToken(User user)&#123;</span><br><span class="line">        String token = Jwts.builder().setSubject(SUBJECT)</span><br><span class="line">                .claim(&quot;head_img&quot;,user.getHeadImg())</span><br><span class="line">                .claim(&quot;id&quot;,user.getId())</span><br><span class="line">                .claim(&quot;name&quot;,user.getName())</span><br><span class="line">                .setIssuedAt(new Date())</span><br><span class="line">                .setExpiration(new Date(System.currentTimeMillis()+EXPIRE))</span><br><span class="line">                .signWith(SignatureAlgorithm.HS256,SECRET).compact();</span><br><span class="line">        token = TOKEN_PREFIX + token;</span><br><span class="line">        return token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 校验 token 方法</span><br><span class="line">     * @param token</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static Claims checkJWT(String token)&#123;</span><br><span class="line">      try  &#123;</span><br><span class="line">          final Claims claims = Jwts.parser().setSigningKey(SECRET)</span><br><span class="line">          .parseClaimsJws(token.replace(TOKEN_PREFIX, &quot;&quot;)).getBody();</span><br><span class="line">          return claims;</span><br><span class="line">      &#125;catch (Exception e)&#123;</span><br><span class="line">          return null;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>登录拦截器</p>
+<p>拦截器(<code>interceptor</code>)是对表现层(<code>controller</code>)之前和之后进行数据处理的。</p>
+<p>实现一个拦截器需要实现<code>HandlerInterceptor接口</code>，然后重写里面的<code>preHandle方法</code>，这个方法是在进入<code>controller</code>之前，<code>postHandle</code>是对之后进行处理，在<code>postHanle</code>方法里面需要<code>return false</code>，<code>afterCompletion</code>是对整体完成之后处理（基本不使用），<code>interceptor</code>的执行顺序是链式的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 登录拦截器</span><br><span class="line"> */</span><br><span class="line">public class LoginInterceptor implements HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 进入到 controller之前的方法</span><br><span class="line">     * @param request</span><br><span class="line">     * @param response</span><br><span class="line">     * @param handler</span><br><span class="line">     * @return</span><br><span class="line">     * @throws Exception</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            String accessToken = request.getHeader(&quot;token&quot;);</span><br><span class="line"></span><br><span class="line">            if (accessToken == null) &#123;</span><br><span class="line">                accessToken = request.getParameter(&quot;token&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            if (StringUtils.isNotBlank(accessToken)) &#123;</span><br><span class="line">                Claims claims = JWTUtils.checkJWT(accessToken);</span><br><span class="line">                if (claims == null) &#123;</span><br><span class="line">                    //登录过期，重新登录</span><br><span class="line">                    sendJsonMessage(response, JsonData.buildError(&quot;登录过期，请重新登录&quot;));</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">                Integer id = (Integer) claims.get(&quot;id&quot;);</span><br><span class="line">                String name = (String) claims.get(&quot;name&quot;);</span><br><span class="line"></span><br><span class="line">                request.setAttribute(&quot;user_id&quot;, id);</span><br><span class="line">                request.setAttribute(&quot;name&quot;, name);</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;catch (Exception e)&#123;&#125;</span><br><span class="line"></span><br><span class="line">        sendJsonMessage(response, JsonData.buildError(&quot;登录过期，请重新登录&quot;));</span><br><span class="line">        return false;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 响应 JSON 数据给前端</span><br><span class="line">     * @param response</span><br><span class="line">     * @param obj</span><br><span class="line">     */</span><br><span class="line">    public static void sendJsonMessage(HttpServletResponse response,Object obj)&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            ObjectMapper objectMapper = new ObjectMapper();</span><br><span class="line">            response.setContentType(&quot;application/json; charset=utf-8&quot;);</span><br><span class="line">            PrintWriter writer = response.getWriter();</span><br><span class="line">            writer.print(objectMapper.writeValueAsString(obj));</span><br><span class="line">            writer.close();</span><br><span class="line">            response.flushBuffer();</span><br><span class="line">        &#125;catch (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Guava缓存"><a href="#Guava缓存" class="headerlink" title="Guava缓存"></a>Guava缓存</h4><ul>
+<li><p>添加依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;19.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class BaseCache &#123;</span><br><span class="line"></span><br><span class="line">    private Cache&lt;String,Object&gt; tenMinuteCache = CacheBuilder.newBuilder()</span><br><span class="line">            //设置缓存初始大小，需要合理设置</span><br><span class="line">            .initialCapacity(10)</span><br><span class="line">            //最大值</span><br><span class="line">            .maximumSize(100)</span><br><span class="line">            //并发数设置</span><br><span class="line">            .concurrencyLevel(5)</span><br><span class="line">            //缓存过期时间，写入后10分钟过期</span><br><span class="line">            .expireAfterWrite(600, TimeUnit.SECONDS)</span><br><span class="line">            //统计缓存命中率</span><br><span class="line">            .recordStats()</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    private Cache&lt;String,Object&gt; oneHourCache = CacheBuilder.newBuilder()</span><br><span class="line">            //设置缓存初始大小，需要合理设置</span><br><span class="line">            .initialCapacity(10)</span><br><span class="line">            //最大值</span><br><span class="line">            .maximumSize(100)</span><br><span class="line">            //并发数设置</span><br><span class="line">            .concurrencyLevel(5)</span><br><span class="line">            //缓存过期时间，写入后10分钟过期</span><br><span class="line">            .expireAfterWrite(3600, TimeUnit.SECONDS)</span><br><span class="line">            //统计缓存命中率</span><br><span class="line">            .recordStats()</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    public Cache&lt;String, Object&gt; getOneHourCache() &#123;</span><br><span class="line">        return oneHourCache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setOneHourCache(Cache&lt;String, Object&gt; oneHourCache) &#123;</span><br><span class="line">        this.oneHourCache = oneHourCache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Cache&lt;String, Object&gt; getTenMinuteCache() &#123;</span><br><span class="line">        return tenMinuteCache;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setTenMinuteCache(Cache&lt;String, Object&gt; tenMinuteCache) &#123;</span><br><span class="line">        this.tenMinuteCache = tenMinuteCache;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><ul>
+<li><p><strong>自定义序列化和反序列化机制配置</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisTemplateConfiguration</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> redisConnectionFactory</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RedisTemplate&lt;Object, Object&gt; <span class="title function_">redisTemplate</span><span class="params">(RedisConnectionFactory redisConnectionFactory)</span> &#123;</span><br><span class="line"></span><br><span class="line">        RedisTemplate&lt;Object, Object&gt; redisTemplate = <span class="keyword">new</span> <span class="title class_">RedisTemplate</span>&lt;&gt;();</span><br><span class="line">        redisTemplate.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">        <span class="comment">// 使用Jackson2JsonRedisSerialize 替换默认序列化</span></span><br><span class="line">        <span class="type">Jackson2JsonRedisSerializer</span> <span class="variable">jackson2JsonRedisSerializer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jackson2JsonRedisSerializer</span>(Object.class);</span><br><span class="line"></span><br><span class="line">        <span class="type">ObjectMapper</span> <span class="variable">objectMapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);</span><br><span class="line">        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置key和value的序列化规则</span></span><br><span class="line">        redisTemplate.setKeySerializer(<span class="keyword">new</span> <span class="title class_">StringRedisSerializer</span>());</span><br><span class="line">        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置hashKey和hashValue的序列化规则</span></span><br><span class="line">        redisTemplate.setHashKeySerializer(<span class="keyword">new</span> <span class="title class_">StringRedisSerializer</span>());</span><br><span class="line">        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置支持事物</span></span><br><span class="line">        <span class="comment">//redisTemplate.setEnableTransactionSupport(true);</span></span><br><span class="line"></span><br><span class="line">        redisTemplate.afterPropertiesSet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
