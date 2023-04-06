@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        C语言进阶 - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E8%BF%9B%E9%98%B6"><span class="toc-text">C进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#typedef"><span class="toc-text">typedef</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#void"><span class="toc-text">void</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sizeof"><span class="toc-text">sizeof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-text">变量的修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%9B%9B%E5%8C%BA"><span class="toc-text">内存四区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%88%E5%8C%BA%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">栈区的注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E5%8C%BA%E4%BB%A5%E5%8F%8A%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B%E9%A1%B9"><span class="toc-text">堆区以及注意的事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">静态变量和全局变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#const%E5%B8%B8%E9%87%8F"><span class="toc-text">const常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F"><span class="toc-text">字符串常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8F%E5%87%BD%E6%95%B0"><span class="toc-text">宏函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">函数的调用流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%83%AF%E4%BE%8B"><span class="toc-text">调用惯例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E4%BC%A0%E9%80%92%E5%88%86%E6%9E%90"><span class="toc-text">函数变量传递分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E7%94%9F%E9%95%BF%E6%96%B9%E5%90%91"><span class="toc-text">栈的生长方向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">内存存储方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%BC%BA%E5%8C%96"><span class="toc-text">指针强化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8E%E6%8C%87%E9%92%88%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5"><span class="toc-text">野指针三种情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E6%AD%A5%E9%95%BF"><span class="toc-text">指针的步长</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E9%97%B4%E6%8E%A5%E8%B5%8B%E5%80%BC"><span class="toc-text">指针的间接赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">指针做函数参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8C%87%E9%92%88%E5%BC%BA%E5%8C%96"><span class="toc-text">字符串指针强化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%B7%E8%B4%9D"><span class="toc-text">字符串拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-text">字符串反转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">字符串格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#calloc-%E5%92%8C-realloc"><span class="toc-text">calloc 和 realloc</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        C语言进阶
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-04-06 22:38:00</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="C进阶"><a href="#C进阶" class="headerlink" title="C进阶"></a>C进阶</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
+<li>声明数据类型是为了更好的管理内存，为数据分配合理的内存空间</li>
+<li>定义的数据都得有一种数据类型</li>
+<li>创建变量的模具，<strong>固定大小内存的别名</strong>，即int a = 10；是分配一个4个字节的内存空间，里面存的数据为10(里面用16进制表示0)，然后用别名 a来操作这段内存</li>
+</ul>
+<h4 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h4><p>实际就是起一个别名来操作</p>
+<ul>
+<li>简化结构体的struct关键字</li>
+<li>区分数据类型   typedef char * Pchar;</li>
+<li>提高移植性，当需要修改特定的时候 提前用typedef定义后只需要修改定义就行</li>
+</ul>
+<h4 id="void"><a href="#void" class="headerlink" title="void"></a>void</h4><ul>
+<li><p>无类型   无法定义数据类型，编译器无法知道为数据分配多大的内存</p>
+</li>
+<li><p>限定函数返回值，限定函数参数</p>
+</li>
+<li><p>万能指针  void *p=NULL;(任何指针用sizeof调用都是四个字节)</p>
+<p>不同类型的指针需要强转才能转换，void指针可以不通过强制类型转换</p>
+</li>
+</ul>
+<h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h4><ul>
+<li><p>本质不是一个函数，而是一种运算符</p>
+</li>
+<li><p>在统计类型的时候需要加括号，在统计变量的时候可以不加括号</p>
+</li>
+<li><p>sizeof的返回值是一个unsigned int  无符号整型</p>
+<p>一个unsigned int 和int运算，结果会统一为unsigned int</p>
+</li>
+<li><p>可以求数组所占内存空间的大小</p>
+<p>当一个数组名传入到函数中作为参数，会被退化为一个指针，这个指针指向该数组首元素的地址，其实数组名就是一个地址</p>
+</li>
+</ul>
+<h4 id="变量的修改"><a href="#变量的修改" class="headerlink" title="变量的修改"></a>变量的修改</h4><ul>
+<li>变量本质：一段连续内存空间的别名</li>
+<li>不是向变量名读写数据，而是向变量名所代表的内存空间进行读写数据</li>
+<li>直接修改</li>
+<li>间接修改 ： int *p=&a;   *p=20;// *p是解引用过程，是访问p内存存放的地址所代表的值</li>
+</ul>
+<h4 id="内存四区"><a href="#内存四区" class="headerlink" title="内存四区"></a>内存四区</h4><ul>
+<li><p>运行之前：</p>
+<ul>
+<li>预处理：宏定义展开，头文件展开，条件编译，这里并不会检查语法</li>
+<li>编译：检查语法，将预处理后的文件编译成汇编文件</li>
+<li>汇编：将汇编文件生成目标文件（二进制文件）</li>
+<li>链接：将目标文件链接为可执行文件</li>
+</ul>
+</li>
+<li><p>代码区：存放cpu执行的机器指令。通常代码区是共享的，共享的目的是频繁被执行的程序只需要在内存中有一份代码就可以，代码区通常是只读的</p>
+</li>
+<li><p>全局初始化数据区或者叫做静态数据区（data段）：在程序中被明确初始化的全局变量，已经初始化的静态变量和常量数据</p>
+</li>
+<li><p>未初始化数据区（又叫bss区）：存入的是未初始化变量和未初始化静态变量，未初始化数据区在程序执行前被内核初始化为0或者NULL；</p>
+</li>
+<li><p>运行之后：</p>
+<ul>
+<li>栈区：先进后出，编译器自动分配释放，函数的参数，返回值，局部变量，在生命周期结束的时候自动释放内存，栈容量有限，容易栈溢出</li>
+<li>堆区：大容器，用于动态分配内存，堆在内存中位于bss和栈之间，一般由程序员分配和释放，程序结束时由操作系统回收</li>
+</ul>
+</li>
+</ul>
+<h4 id="栈区的注意事项"><a href="#栈区的注意事项" class="headerlink" title="栈区的注意事项"></a>栈区的注意事项</h4><ul>
+<li>在函数里面定义的局部变量不能作为返回值，因为在函数运行结束的时候栈中已经把局部变量的内存释放</li>
+<li>不要返回局部变量的地址值</li>
+</ul>
+<h4 id="堆区以及注意的事项"><a href="#堆区以及注意的事项" class="headerlink" title="堆区以及注意的事项"></a>堆区以及注意的事项</h4><ul>
+<li>使用 malloc关键字向堆申请内存空间，在使用完后建议free掉</li>
+<li>memset 为新申请的内存做初始化 memset（内存，0，大小）</li>
+<li>主调函数里面的空指针，被调函数中用同级指针分配内存失败需要高级指针来修饰，在主调函数中把指针的地址传入进去</li>
+</ul>
+<h4 id="静态变量和全局变量"><a href="#静态变量和全局变量" class="headerlink" title="静态变量和全局变量"></a>静态变量和全局变量</h4><ul>
+<li>静态变量：static 关键字修饰<ul>
+<li>在程序执行前分配内存</li>
+<li>生命周期为整个程序运行周期</li>
+<li>默认属于内部链接属性，在当前文件夹里使用</li>
+<li>还是跟其他变量的作用域规则一样</li>
+</ul>
+</li>
+<li>全局变量：<ul>
+<li>在C语言中的全局变量在类型前面默认加了一个extern关键字</li>
+<li>属于外部链接属性</li>
+<li>extern int g_b；  告诉编译器  其他文件中有一个g_b  在链接的时候去别的文件中找</li>
+</ul>
+</li>
+</ul>
+<h4 id="const常量"><a href="#const常量" class="headerlink" title="const常量"></a>const常量</h4><ul>
+<li><p>全局的const 常量 ：</p>
+<ul>
+<li>不可修改    ：放在常量区，受到常量区的保护，只具有读的操作</li>
+</ul>
+</li>
+<li><p>局部的const 常量 （伪常量） ：</p>
+<ul>
+<li><p>不可直接修改，但是可以用指针间接修改</p>
+<p>因为是局部变量 ， 是保存在栈中的，伪常量不可初始化数组</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h4><ul>
+<li><p>char * p = “hello world”;</p>
+</li>
+<li><p>相同的字符串常量，被不同的指针所指向，指针的地址值相等</p>
+<ul>
+<li>字符串常量由编译器来决定是否可以修改 </li>
+</ul>
+</li>
+</ul>
+<h4 id="宏函数"><a href="#宏函数" class="headerlink" title="宏函数"></a>宏函数</h4><ul>
+<li>在预处理阶段就做了宏的替换</li>
+<li>使用场景：短小且频繁使用的函数，封装为宏函数</li>
+<li>优点：以空间换时间（普通函数的变量需要频繁入栈和出栈）</li>
+<li>注意事项：运算的时候需要保证运算的完整性</li>
+</ul>
+<h4 id="函数的调用流程"><a href="#函数的调用流程" class="headerlink" title="函数的调用流程"></a>函数的调用流程</h4><ul>
+<li>记录函数的返回地址（在调用完子函数后，能继续执行主函数的后面的代码）</li>
+<li>进栈，参数从左往右进栈</li>
+</ul>
+<h4 id="调用惯例"><a href="#调用惯例" class="headerlink" title="调用惯例"></a>调用惯例</h4><ul>
+<li><p>主调函数和被调函数之间需要有一个约定才能正确的调用函数</p>
+</li>
+<li><p>cdecl C语言默认的调用惯例，参数传递从右到左参数入栈，出栈方是函数调用方，名字修饰用下划线加函数名</p>
+</li>
+</ul>
+<h4 id="函数变量传递分析"><a href="#函数变量传递分析" class="headerlink" title="函数变量传递分析"></a>函数变量传递分析</h4><ul>
+<li>main函数在栈中开辟的内存，所有子函数都能使用</li>
+<li>main函数在堆中开辟的空间，所有子函数均可以使用</li>
+</ul>
+<h4 id="栈的生长方向"><a href="#栈的生长方向" class="headerlink" title="栈的生长方向"></a>栈的生长方向</h4><ul>
+<li>栈底是高地址，栈顶是地地址</li>
+</ul>
+<h4 id="内存存储方式"><a href="#内存存储方式" class="headerlink" title="内存存储方式"></a>内存存储方式</h4><ul>
+<li>根据大端对齐模式还是小端对齐模式</li>
+<li>大端对齐模式：高位字节数据放在内存低地址处</li>
+<li>小端对齐模式：高位字节数据放在内存高地址</li>
+</ul>
+<h4 id="指针强化"><a href="#指针强化" class="headerlink" title="指针强化"></a>指针强化</h4><ul>
+<li>指针是一种数据类型，占用内存空间，用来保存地址（任何类型的指针都只占四个字节的内存空间）</li>
+<li>空指针：指向NULL   野指针：指向的内存不是自己申请的</li>
+<li>不能向空指针和野指针指向的内存进行操作，如果操作，程序中断</li>
+</ul>
+<h4 id="野指针三种情况"><a href="#野指针三种情况" class="headerlink" title="野指针三种情况"></a>野指针三种情况</h4><ul>
+<li>指针没有进行初始化，就进行操作</li>
+<li>malloc后free后的指针    解决办法：指向NULL</li>
+<li>指针变量超出了作用域</li>
+<li>空指针可以重复释放，野指针不能重复释放</li>
+</ul>
+<h4 id="指针的步长"><a href="#指针的步长" class="headerlink" title="指针的步长"></a>指针的步长</h4><ul>
+<li>指针变量+1后跳跃的字节数</li>
+<li>在解引用时候，取出的字节数</li>
+<li>结构体中成员的偏移量 ： 用offsetof（结构体，成员名）宏函数; 需要导入头文件#include&lt;stddef.h&gt;</li>
+</ul>
+<h4 id="指针的间接赋值"><a href="#指针的间接赋值" class="headerlink" title="指针的间接赋值"></a>指针的间接赋值</h4><ul>
+<li>间接赋值的三大条件：<ul>
+<li>两个变量（普通变量或指针变量，形参实参）</li>
+<li>建立关系</li>
+<li>通过*操作指针指向的内存</li>
+</ul>
+</li>
+</ul>
+<h4 id="指针做函数参数"><a href="#指针做函数参数" class="headerlink" title="指针做函数参数"></a>指针做函数参数</h4><ul>
+<li>输入特性：主调函数分配内存，被调函数可以使用</li>
+<li>输出特性：被调函数分配内存</li>
+</ul>
+<h4 id="字符串指针强化"><a href="#字符串指针强化" class="headerlink" title="字符串指针强化"></a>字符串指针强化</h4><ul>
+<li><p>注意事项：</p>
+<ul>
+<li><p>字符串结束标志 \0</p>
+</li>
+<li><p>char str[] ={‘a’,’c’,’\0’}   这种需要在后面手动加上\0结尾</p>
+</li>
+<li><p>char str[10] = {‘s’,’b’}   这种会自动给你加上\0结尾</p>
+</li>
+<li><p>char str = “hello world”  也是自动加上\0    strlen() 不统计\0   sizeof() 统计\0</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串拷贝"><a href="#字符串拷贝" class="headerlink" title="字符串拷贝"></a>字符串拷贝</h4><ul>
+<li><p>第一种：根据下标进行拷贝</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">copyStringMethod1</span><span class="params">(<span class="type">char</span> *dest,<span class="type">char</span> *source)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(source);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dest[i]  = source[i];</span><br><span class="line">    &#125;</span><br><span class="line">    dest[len] = <span class="string">&#x27;\0&#x27;</span>; <span class="comment">//把结束标志进行打上，避免外界数组没有进行初始化而导致乱码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>第二种：根据指针进行拷贝</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">copyStringMethod2</span><span class="params">(<span class="type">char</span> *dest,<span class="type">char</span> *source)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(*source!=<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dest = *source;</span><br><span class="line">        dest++;</span><br><span class="line">        source++;</span><br><span class="line">    &#125;</span><br><span class="line">    *dest = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>第三种：根据指针的简洁版</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">copyStringMethod3</span><span class="params">(<span class="type">char</span> *dest,<span class="type">char</span> *source)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(*dest++ = *source++);<span class="comment">//当左值已经为0就不会再进入循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h4><ul>
+<li><p>第一种：根据下标进行反转</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">reverseString</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    <span class="type">int</span> start = <span class="number">0</span>;  <span class="comment">//指向第一个</span></span><br><span class="line">    <span class="type">int</span> end = len <span class="number">-1</span>; <span class="comment">//指向最后一个</span></span><br><span class="line">    <span class="keyword">while</span>(start &lt;end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> temp = str[start];</span><br><span class="line">        str[start] = str[end];</span><br><span class="line">        str[end] = temp;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>第二种：根据指针进行反转</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">reverseString</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    <span class="type">char</span> *start = str;  <span class="comment">//定义一个指针,指向首地址</span></span><br><span class="line">    <span class="type">char</span> *end  = str +len<span class="number">-1</span>;  <span class="comment">//加上偏移量 指向最后一个</span></span><br><span class="line">    <span class="keyword">while</span>(start&lt;end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> temp = *start;</span><br><span class="line">        *start = *end;</span><br><span class="line">        *end = temp;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h4><ul>
+<li><p>int sprintf(char * str , const char * format,…), 失败返回-1，成功返回格式化字符个数</p>
+</li>
+<li><p>参数1：格式化的后的目标字符串 参数2：格式化形式  参数3：…  格式化中的参数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sprintf</span>(buf,<span class="string">&quot;今天是 %d 年 %d 月 %d 日 &quot;</span>,<span class="number">2023</span>,<span class="number">04</span>,<span class="number">05</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>字符串拼接</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[<span class="number">1024</span>];</span><br><span class="line"><span class="built_in">memset</span>(str, <span class="number">0</span>, <span class="number">1024</span>);</span><br><span class="line"><span class="type">char</span> str1[] = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="type">char</span> str2[] = <span class="string">&quot;yzpcode&quot;</span>;</span><br><span class="line"><span class="built_in">sprintf</span>(str, <span class="string">&quot;%s %s &quot;</span>,str1,str2);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="calloc-和-realloc"><a href="#calloc-和-realloc" class="headerlink" title="calloc 和 realloc"></a>calloc 和 realloc</h4>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
