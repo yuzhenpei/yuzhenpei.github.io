@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        标准IO - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86I-O"><span class="toc-text">标准I&#x2F;O</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86IO%E2%80%94%E6%B5%81"><span class="toc-text">标准IO—流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B5%81%E7%9A%84%E5%88%B7%E6%96%B0"><span class="toc-text">标准流的刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B5%81%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-text">标准流的定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4"><span class="toc-text">时间</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        标准IO
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-14 12:06:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="标准I-O"><a href="#标准I-O" class="headerlink" title="标准I/O"></a>标准I/O</h3><h4 id="标准IO—流"><a href="#标准IO—流" class="headerlink" title="标准IO—流"></a>标准IO—流</h4><p>标准io通过缓冲机制减少系统调用，实现更高的效率</p>
+<p>FILE</p>
+<ul>
+<li>标准io用一个结构体类型来存放打开的文件信息</li>
+<li>标准io的所有操作都是用FILE进行</li>
+</ul>
+<p>FILE又称为流stream</p>
+<ul>
+<li>文本流/二进制流</li>
+</ul>
+<p>缓冲机制</p>
+<ul>
+<li>全缓冲：当缓冲区无数据或者无空间的时候才执行IO操作</li>
+<li>行缓冲：当遇到换行\n,\r 的时候将缓冲区的东西写入IO操作，或者当程序结束的时候写入</li>
+<li>无缓冲：不进行缓冲机制</li>
+</ul>
+<p><strong>文件的打开</strong></p>
+<ul>
+<li><p>占用资源</p>
+</li>
+<li><p>FILE * fopen(const char *path,const char *mode)</p>
+<ul>
+<li><p>path：普通文件当前文件不需要加目录，其他要使用绝对路径</p>
+</li>
+<li><p>Mode：</p>
+<blockquote>
+<p>“r”：只读方式打开文件，需要文件必须存在    <strong>只读推荐</strong></p>
+<p>“w”：只写方式打开文件，若文件存在则长度清零，若文件不存在，创建文件    <strong>只写一次推荐</strong></p>
+<p>“a”：只写的方式打开文件，若文件不存在就创建文件，存在就将写入的插入到文件，末尾  <strong>追加文件推荐</strong></p>
+<p>“r+”：读写方式打开，文件必须存在，但是写入后会覆盖原本的</p>
+<p>“w+ “：读写方式打开文件，其他同w</p>
+<p>“a+”: 读写方式打开文件，其他同a</p>
+<p>返回值：出错返回NULL，使用fopen函数需要做非空判断</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>文件的关闭</strong></p>
+<ul>
+<li><p>释放资源</p>
+</li>
+<li><p>int fclose(FILE *stream)</p>
+<blockquote>
+<p>成功返回0，错误返回负数，并设置error</p>
+<p>流关闭时自动刷新缓冲中的数据，并释放缓冲区</p>
+<p>当一个程序正常终止，所有打开的流都会关闭，比如常规文件把缓冲区的数据写入磁盘</p>
+<p>流一旦关闭就无法执行任何操作</p>
+</blockquote>
+</li>
+<li><p>入参必须是非空的，不然会报段错误</p>
+</li>
+</ul>
+<p><strong>读取字符</strong></p>
+<p>读取一个字符：</p>
+<blockquote>
+<p>int fgetc(FILE * stream) ；</p>
+<p>int getc(FILE *stream);宏定义函数</p>
+<p>int getchar(void) ；  键盘等获取 ,等于标准输入输出，会阻塞等待键盘输入</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//srdiotest: fgetc()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//open a file</span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.txt&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//get a char from file</span></span><br><span class="line">        ret = fgetc(fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fgetc:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The char is : %d\n&quot;</span>,ret);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//close the file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>写入一个字符</p>
+<blockquote>
+<p>int fputc(int c，FILE *stream);</p>
+<p>int putc(int c，FILE *stream);</p>
+<p>int putchar(int c);     等于标准输入输出</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//stdiotest: fputc()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//open a file with append</span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.txt&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> w = <span class="string">&#x27;c&#x27;</span>;</span><br><span class="line">        <span class="comment">//write this char into the file</span></span><br><span class="line">        ret = fputc(w,fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fputc:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;This char is : %c\n&quot;</span>,ret);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//close this file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>按行读写</strong></p>
+<p>按行读取：</p>
+<blockquote>
+<p>char *gets(char *s); *s表示读到哪里,从键盘读   //已经淘汰，会导致缓冲区溢出</p>
+<p>char *fgets(char *s,int size,FILE *stream)//会计算\0,没填满的话，就加入\n</p>
+<p>成功返回s，到文件末尾或者出错返回NULL</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//srdiotest: fgets()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">char</span> * ret = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">char</span> buf[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">memset</span>(buf,<span class="number">0</span>,<span class="number">100</span>);</span><br><span class="line">        <span class="comment">//open a file</span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.txt&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//get a char from file</span></span><br><span class="line">        ret = fgets(buf,<span class="number">21</span>,fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fgets:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">NULL</span>!=ret)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;The string is : %s&quot;</span>,buf);</span><br><span class="line"></span><br><span class="line">        ret = fgets(buf,<span class="number">5</span>,fp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//close the file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>按行写入：</p>
+<blockquote>
+<p>int fputs(const char *s,FILE *stream);//将s写入到文件中</p>
+<p>成功返回非负整数，出错返回负数</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//stdiotest: fputs()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">char</span> *str = <span class="string">&quot;yzpcode.xyz is the best!&quot;</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">//open a file</span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.txt&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span>==fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//write this string into the file</span></span><br><span class="line">        ret = <span class="built_in">fputs</span>(str,fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fputs:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;write into file success!\n&quot;</span>);</span><br><span class="line">        <span class="comment">//close the file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>二进制读写：</p>
+<p>按对象读写：</p>
+<blockquote>
+<p>size_t fread (void * ptr,size_t size,size_t n,FILE* f);  *ptr表示读到哪里，size表示读取块多大，n表示多少个，f表示从哪里读</p>
+<p>size_t fwrite (const void * ptr,size_t size,size_t n,FILE* f);  *ptr写的内容位置指针，f表示写到哪里</p>
+<p>成功返回读写的个数，失败返回负数</p>
+<p>既可以读写文本文件，也可以读写数据文件</p>
+<p>注意事项：文件写完过后，文件指针指向文件末尾，如果这时候直接读取文件，会读不出来</p>
+<p>解决办法：移动指针，关闭文件重新打开文件</p>
+</blockquote>
+<p>写：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//stdio: fwrite()</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">User</span> &#123;</span></span><br><span class="line">        <span class="type">char</span> name[<span class="number">30</span>];</span><br><span class="line">        <span class="type">int</span> age;</span><br><span class="line">        <span class="type">char</span> sex[<span class="number">10</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">size_t</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">User</span> <span class="title">user1</span>;</span></span><br><span class="line">        <span class="built_in">strcpy</span>(user1.name,<span class="string">&quot;yzpcode&quot;</span>);</span><br><span class="line">        user1.age  = <span class="number">20</span>;</span><br><span class="line">        <span class="built_in">strcpy</span>(user1.sex,<span class="string">&quot;man&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//open a file </span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.bin&quot;</span>,<span class="string">&quot;w&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span>==fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//write into file</span></span><br><span class="line">       ret = fwrite(&amp;user1,<span class="keyword">sizeof</span>(user1),<span class="number">1</span>,fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fwrite:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The len is : %ld\n&quot;</span>,ret);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//close the file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>读：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//stdio: fwrite()</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">User</span> &#123;</span></span><br><span class="line">        <span class="type">char</span> name[<span class="number">30</span>];</span><br><span class="line">        <span class="type">int</span> age;</span><br><span class="line">        <span class="type">char</span> sex[<span class="number">10</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        FILE *fp = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="type">size_t</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">User</span> <span class="title">user1</span>;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//open a file </span></span><br><span class="line">        fp = fopen(<span class="string">&quot;1.bin&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span>==fp)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fopen:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//read the file</span></span><br><span class="line">        ret = fread(&amp;user1,<span class="keyword">sizeof</span>(user1),<span class="number">1</span>,fp);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span>==ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;fread:&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The len is : %ld\n&quot;</span>,ret);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The user is: name:%s   age:%d   sex:%s  \n&quot;</span>,user1.name,user1.age,user1.sex);</span><br><span class="line">        <span class="comment">//close the file</span></span><br><span class="line">        fclose(fp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="标准流的刷新"><a href="#标准流的刷新" class="headerlink" title="标准流的刷新"></a>标准流的刷新</h4><ul>
+<li>int fflush（FILE* f）</li>
+<li>将缓冲区的数据写入文件</li>
+</ul>
+<h4 id="标准流的定位"><a href="#标准流的定位" class="headerlink" title="标准流的定位"></a>标准流的定位</h4><ul>
+<li><p>long ftell(FILE *fp)// 返回当前流的读写位置</p>
+</li>
+<li><p>long fseek(FILE*stream,long offset, int whence)</p>
+<blockquote>
+<p>offset 表示偏移量，可正可负</p>
+<p>whence 表示在那个位置，   SEEK_SET  开头    SEEK_CUR  当前     SEEK_END 结尾</p>
+<p>当文件以a模式打开fseek无效</p>
+</blockquote>
+</li>
+<li><p>void rewind(FILE *fp)</p>
+<blockquote>
+<p>相当于 fseek(fp,0,SEEK_SET)</p>
+</blockquote>
+</li>
+<li><p>这三个函数只适用于2G以下的文件</p>
+</li>
+</ul>
+<p>标准流的格式化输入输出</p>
+<ul>
+<li><p>输出</p>
+<blockquote>
+<p>sprintf(buf,”%d-%d-%d”,2023,4,16);//输入到buf数组    用的较多    将数据以格式输入</p>
+<p>fprintf(fp,”%d-%d-%d”,2023,4,16)//输入到fp文件</p>
+</blockquote>
+</li>
+<li><p>输入</p>
+<blockquote>
+<p>int sscanf(buf,”%d-%d-%d”,&amp;year,&amp;month,&amp;day);  //变量需要加地址符 ，将buf取出数据按格式赋值给变量</p>
+<p>取一定数据进行格式</p>
+<p>int  fscanf(fp,”%d-%d-%d”,&amp;year,&amp;month,&amp;day) //从文件中读取数据赋值给变量</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h4><ul>
+<li><p>time() 获取时间戳</p>
+<blockquote>
+<p>返回值为long int</p>
+</blockquote>
+</li>
+<li><p>localtime(&amp;time)    ;  将时间戳转换为系统时间</p>
+<blockquote>
+<p>返回的是一个struct tm* 结构体 指针  </p>
+</blockquote>
+</li>
+</ul>
+<p>写入到时间需要刷新缓冲区</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

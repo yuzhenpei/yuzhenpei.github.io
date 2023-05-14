@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Linux文件IO - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%96%87%E4%BB%B6%E5%92%8C%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">Linux文件和系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C%E5%BA%93%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">系统调用和库函数的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6"><span class="toc-text">文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84IO%E5%87%BD%E6%95%B0"><span class="toc-text">常用的IO函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-1-open%E5%87%BD%E6%95%B0"><span class="toc-text">16.1 open函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-2-close%E5%87%BD%E6%95%B0"><span class="toc-text">16.2 close函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#write%E5%87%BD%E6%95%B0"><span class="toc-text">write函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#read%E5%87%BD%E6%95%B0"><span class="toc-text">read函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AE%9A%E4%BD%8D"><span class="toc-text">文件定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E7%9B%AE%E5%BD%95"><span class="toc-text">访问目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-text">修改文件访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">获取文件属性</span></a>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Linux文件IO
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-14 12:06:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="Linux文件和系统调用"><a href="#Linux文件和系统调用" class="headerlink" title="Linux文件和系统调用"></a>Linux文件和系统调用</h3><h4 id="系统调用和库函数的区别"><a href="#系统调用和库函数的区别" class="headerlink" title="系统调用和库函数的区别"></a>系统调用和库函数的区别</h4><ul>
+<li><p>系统调用：操作系统提供给用户程序的一组特殊接口</p>
+<blockquote>
+<p>用户态，内核态</p>
+<p>操作系统一般通过软件中断来切换</p>
+</blockquote>
+</li>
+<li><p>库函数</p>
+<blockquote>
+<ol>
+<li>需要调用系统调用：不需要切换内核态</li>
+<li>需要调用系统调用：需要切换为内核态</li>
+</ol>
+</blockquote>
+</li>
+<li><p>错误处理函数errno，全局变量，定义在&lt;errno.h&gt;，记录系统程序最近一次出错的状态码，是一个整型int，可以通过strerror(errno)函数将对应的出错信息显示出来，也可以使用perror() 函数，里面可以加字符串提示，效果是一样的</p>
+</li>
+<li><p>虚拟地址：</p>
+<p>在进程里面平时的指针变量，保存的时虚拟地址，当应用程序使用虚拟地址访问内存的时候，cpu会将虚拟地址转化为物理地址</p>
+<blockquote>
+<p>MMU：将虚拟地址转化为物理地址</p>
+<p>好处：</p>
+<ol>
+<li>进程隔离，更好的保护系统安全运行</li>
+<li>方便操作系统和编译器安排进程地址</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><ul>
+<li><p>文件描述符：非负的整数，是文件的标志，操作文件描述符等于操作这个文件,0,1,2 已经被系统使用</p>
+</li>
+<li><p>最大打开文件：</p>
+<blockquote>
+<p>查看： cat  /proc/sys/fs/file-max</p>
+<p>查看当前默认设置最大打开文件个数：ulimit -a</p>
+<p>修改默认设置最大打开文件个数 ： ulimit -n  4096</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="常用的IO函数"><a href="#常用的IO函数" class="headerlink" title="常用的IO函数"></a>常用的IO函数</h4><h3 id="16-1-open函数"><a href="#16-1-open函数" class="headerlink" title="16.1 open函数"></a>16.1 open函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">int</span> flags)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">open</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="type">int</span> flags, <span class="type">mode_t</span> mode)</span>;</span><br><span class="line">功能：</span><br><span class="line">    打开文件，如果文件不存在则可以选择创建。</span><br><span class="line">参数：</span><br><span class="line">    pathname：文件的路径及文件名</span><br><span class="line">    flags：打开文件的行为标志，必选项 O_RDONLY, O_WRONLY, O_RDWR</span><br><span class="line">    mode：这个参数，只有在文件不存在时有效，指新建文件时指定文件的权限</span><br><span class="line">返回值：</span><br><span class="line">    成功：成功返回打开的文件描述符</span><br><span class="line">    失败：<span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>flags详细说明</strong></p>
+<p>必选项：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>取值</strong></th>
+<th align="left"><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">O_RDONLY</td>
+<td align="left">以只读的方式打开</td>
+</tr>
+<tr>
+<td align="left">O_WRONLY</td>
+<td align="left">以只写的方式打开</td>
+</tr>
+<tr>
+<td align="left">O_RDWR</td>
+<td align="left">以可读、可写的方式打开</td>
+</tr>
+</tbody></table>
+<p>可选项，和必选项按位或起来</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>取值</strong></th>
+<th align="left"><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">O_CREAT</td>
+<td align="left">文件不存在则创建文件，使用此选项时需使用mode说明文件的权限</td>
+</tr>
+<tr>
+<td align="left">O_EXCL</td>
+<td align="left">如果同时指定了O_CREAT，且文件已经存在，则出错</td>
+</tr>
+<tr>
+<td align="left">O_TRUNC</td>
+<td align="left">如果文件存在，则清空文件内容</td>
+</tr>
+<tr>
+<td align="left">O_APPEND</td>
+<td align="left">写文件时，数据添加到文件末尾</td>
+</tr>
+<tr>
+<td align="left">O_NONBLOCK</td>
+<td align="left">对于设备文件, 以O_NONBLOCK方式打开可以做非阻塞I/O</td>
+</tr>
+</tbody></table>
+<p><strong>mode补充说明</strong></p>
+<p>\1) 文件最终权限：mode &amp; ~umask</p>
+<p>\2) shell进程的umask掩码可以用umask命令查看</p>
+<p>Ø umask：查看掩码（补码）</p>
+<p>Ø umask mode：设置掩码，mode为八进制数</p>
+<p>Ø umask -S：查看各组用户的默认操作权限</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>取值</strong></th>
+<th align="left"><strong>八进制</strong></th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">S_IRWXU</td>
+<td align="left">00700</td>
+<td align="left">文件所有者的读、写、可执行权限</td>
+</tr>
+<tr>
+<td align="left">S_IRUSR</td>
+<td align="left">00400</td>
+<td align="left">文件所有者的读权限</td>
+</tr>
+<tr>
+<td align="left">S_IWUSR</td>
+<td align="left">00200</td>
+<td align="left">文件所有者的写权限</td>
+</tr>
+<tr>
+<td align="left">S_IXUSR</td>
+<td align="left">00100</td>
+<td align="left">文件所有者的可执行权限</td>
+</tr>
+<tr>
+<td align="left">S_IRWXG</td>
+<td align="left">00070</td>
+<td align="left">文件所有者同组用户的读、写、可执行权限</td>
+</tr>
+<tr>
+<td align="left">S_IRGRP</td>
+<td align="left">00040</td>
+<td align="left">文件所有者同组用户的读权限</td>
+</tr>
+<tr>
+<td align="left">S_IWGRP</td>
+<td align="left">00020</td>
+<td align="left">文件所有者同组用户的写权限</td>
+</tr>
+<tr>
+<td align="left">S_IXGRP</td>
+<td align="left">00010</td>
+<td align="left">文件所有者同组用户的可执行权限</td>
+</tr>
+<tr>
+<td align="left">S_IRWXO</td>
+<td align="left">00007</td>
+<td align="left">其他组用户的读、写、可执行权限</td>
+</tr>
+<tr>
+<td align="left">S_IROTH</td>
+<td align="left">00004</td>
+<td align="left">其他组用户的读权限</td>
+</tr>
+<tr>
+<td align="left">S_IWOTH</td>
+<td align="left">00002</td>
+<td align="left">其他组用户的写权限</td>
+</tr>
+<tr>
+<td align="left">S_IXOTH</td>
+<td align="left">00001</td>
+<td align="left">其他组用户的可执行权限</td>
+</tr>
+</tbody></table>
+<h3 id="16-2-close函数"><a href="#16-2-close函数" class="headerlink" title="16.2 close函数"></a>16.2 close函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">close</span><span class="params">(<span class="type">int</span> fd)</span>;</span><br><span class="line">功能：</span><br><span class="line">    关闭已打开的文件</span><br><span class="line">参数：</span><br><span class="line">    fd : 文件描述符，open()的返回值</span><br><span class="line">返回值：</span><br><span class="line">    成功：<span class="number">0</span></span><br><span class="line">    失败： <span class="number">-1</span>, 并设置errno</span><br></pre></td></tr></table></figure>
+
+
+
+<p>需要说明的是，当一个进程终止时，内核对该进程所有尚未关闭的文件描述符调用close关闭，所以即使用户程序不调用close，在终止时内核也会自动关闭它打开的所有文件。</p>
+<p>但是对于一个长年累月运行的程序(比如网络服务器)，打开的文件描述符一定要记得关闭,否则随着打开的文件越来越多，会占用大量文件描述符和系统资源。</p>
+<h3 id="write函数"><a href="#write函数" class="headerlink" title="write函数"></a>write函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//iotest: write()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="type">int</span> fd = <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">char</span> *str = <span class="string">&quot;hello yzpcode.xyz codeboy!&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//opne a file </span></span><br><span class="line">        fd = open(<span class="string">&quot;yzp&quot;</span>,O_WRONLY|O_CREAT,<span class="number">0644</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span> == fd)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;open: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;open file success!\n&quot;</span>);</span><br><span class="line">        <span class="comment">//write into file</span></span><br><span class="line">        ret = write(fd,str,<span class="built_in">strlen</span>(str));</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span> == ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;write: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;write into file success!\n&quot;</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;str len : %d\n&quot;</span>,ret);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">        close(fd);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="read函数"><a href="#read函数" class="headerlink" title="read函数"></a>read函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIZE 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//iotest: read()</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="type">int</span> fd = <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">-1</span>;</span><br><span class="line">        <span class="type">char</span> buf[SIZE];</span><br><span class="line">        <span class="built_in">memset</span>(buf,<span class="number">0</span>,SIZE);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//opne a file </span></span><br><span class="line">        fd = open(<span class="string">&quot;yzp&quot;</span>,O_RDONLY);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span> == fd)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;open: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;open file success!\n&quot;</span>);</span><br><span class="line">        <span class="comment">//read  file</span></span><br><span class="line">        ret = read(fd,buf,SIZE);</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">-1</span> == ret)</span><br><span class="line">        &#123;</span><br><span class="line">                perror(<span class="string">&quot;read: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;read file success!\n&quot;</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;file len is: %d file content : %s\n&quot;</span>,ret,buf);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">        close(fd);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件定位"><a href="#文件定位" class="headerlink" title="文件定位"></a>文件定位</h3><ul>
+<li>定位光标</li>
+</ul>
+<blockquote>
+<p>off_t  lseek(int fd,off_t offset,intt whence)</p>
+<p>SEEK_CUR : 当前位置进行偏移</p>
+<p>SEEK_SET:  从文件开始进行偏移</p>
+<p>SEEK_END:  从文件末尾进行偏移</p>
+</blockquote>
+<ul>
+<li>lseek(fd,0,SEEK_SET)</li>
+</ul>
+<h2 id="访问目录"><a href="#访问目录" class="headerlink" title="访问目录"></a>访问目录</h2><ol>
+<li>打开目录 : opendir</li>
+</ol>
+<blockquote>
+<p>#include&lt;dirent.h&gt;</p>
+<p>DIR * opnedir(const char*name)   // 目录的名字</p>
+<p>返回值目录流指针，跟FILE流指针一样，失败返回NULL</p>
+</blockquote>
+<ol start="2">
+<li>读取目录：readdir</li>
+</ol>
+<blockquote>
+<p>#include&lt;dirent.h&gt;</p>
+<p>struct dirent * readdir(DIR * dirp)   //返回值是一个结构体</p>
+<p>成功返回目录流中的下一项，出错或者到末尾返回NULL</p>
+</blockquote>
+<h2 id="修改文件访问权限"><a href="#修改文件访问权限" class="headerlink" title="修改文件访问权限"></a>修改文件访问权限</h2><ol>
+<li>修改文件访问权限：</li>
+</ol>
+<blockquote>
+<p>#include&lt;sys/stat.h&gt;</p>
+<p>int chmod(const char *path,mode_t mode)</p>
+<p>int fchmod(int fd,mode_t mode) </p>
+<p>成功返回0，出错返回负数</p>
+<p>root 和文件所有者才能修改文件的访问权限： chmod (“yzp.txt”,0641)</p>
+</blockquote>
+<h2 id="获取文件属性"><a href="#获取文件属性" class="headerlink" title="获取文件属性"></a>获取文件属性</h2><ol>
+<li>获取文件属性</li>
+</ol>
+<blockquote>
+<p>#inlcude&lt;sys/stat.h&gt;</p>
+<p>int stat(const char*path,struct stat *buf)</p>
+<p>int lstat(const char *path,strucr stat *buf)   // 获取文件属性放到stat结构体中</p>
+<p>int fstat(int fd,struct stat *buf)      //从文件中 获取</p>
+<p>成功返回0，出错时返回负数</p>
+<p>如果path 是符号链接stat获取的是目标文件的属性，而lstat获取的是链接文件的属性</p>
+</blockquote>
+<ol start="2">
+<li>通过 stat结构体st_mode 判断是什么类型</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

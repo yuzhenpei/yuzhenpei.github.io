@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Vim - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim"><span class="toc-text">vim</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vim%E4%B8%8B%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A8%8B"><span class="toc-text">vim下进行编程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-15s-g"><span class="toc-text">:  10 , 15s#^#&#x2F;&#x2F;#g</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GCC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">GCC工作流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="toc-text">静态连接和动态链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E9%9D%99%E6%80%81%E5%BA%93"><span class="toc-text">制作静态库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">静态库的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C"><span class="toc-text">动态库的制作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GDB"><span class="toc-text">GDB</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="toc-text">调试代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%98%BE%E7%A4%BA"><span class="toc-text">自动显示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC"><span class="toc-text">查看修改变量的值</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Vim
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-14 12:02:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><ul>
+<li><p>vim的三种模式：编辑模式，末行模式，命令模式</p>
+</li>
+<li><p>基本操作：</p>
+<ul>
+<li><p>打开文件  vim  文件名     // 显示文件内容末行模式      如果没有文件就创建一个新的文件</p>
+</li>
+<li><p>保存文件    在编辑文件后 按esc  然后shift  + zz</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="vim下进行编程"><a href="#vim下进行编程" class="headerlink" title="vim下进行编程"></a>vim下进行编程</h4><ul>
+<li>分屏：vsp  文件名</li>
+<li>批量删除 </li>
+</ul>
+<blockquote>
+<p>: 10 , 15d</p>
+</blockquote>
+<ul>
+<li>批量复制</li>
+</ul>
+<blockquote>
+<p>: 10 ,15y</p>
+</blockquote>
+<ul>
+<li>批量注释 //</li>
+</ul>
+<blockquote>
+<h3 id="10-15s-g"><a href="#10-15s-g" class="headerlink" title=":  10 , 15s#^#//#g"></a>:  10 , 15s#^#//#g</h3></blockquote>
+<ul>
+<li>批量删除注释  //</li>
+</ul>
+<blockquote>
+<p>:10,20s#^//##g</p>
+</blockquote>
+<ul>
+<li>批量注释  ##</li>
+</ul>
+<blockquote>
+<p>:10,20s/^/#/g</p>
+</blockquote>
+<ul>
+<li>批量删除注释 ##</li>
+</ul>
+<blockquote>
+<p>:10,20s/#//g</p>
+</blockquote>
+<h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><h4 id="GCC工作流程"><a href="#GCC工作流程" class="headerlink" title="GCC工作流程"></a>GCC工作流程</h4><ul>
+<li><p>四个阶段</p>
+<ul>
+<li>预处理  cpp： 头文件展开，宏替换，去掉注释      gcc  -E  hello.c -o hello.i</li>
+<li>编译器  gcc ： c文件变成汇编文件                           gcc - S   hello.c  -o  hello.s</li>
+<li>汇编译   as ：汇编文件变成二进制文件                   gcc  - c  hello.c -o  hello.o</li>
+<li>链接器   ln ： 将函数库中相应的代码组合目标文件生成可执行文件          </li>
+</ul>
+</li>
+<li><p>//编译gcc  hello.c -o hello    // 执行   ./hello   </p>
+<p>-D  : 编译的时候定义宏    -Wall  提示更多警告信息    -Wall -Werror  将警告变成error 处理</p>
+</li>
+</ul>
+<h4 id="静态连接和动态链接"><a href="#静态连接和动态链接" class="headerlink" title="静态连接和动态链接"></a>静态连接和动态链接</h4><ul>
+<li><p>静态链接 ： 在编译的时候将所有库的内容 加载进来   </p>
+<p>版本依赖少， 内存占的多 </p>
+</li>
+<li><p>动态链接： 在需要库的时候再进行加载库</p>
+</li>
+</ul>
+<h5 id="制作静态库"><a href="#制作静态库" class="headerlink" title="制作静态库"></a>制作静态库</h5><ul>
+<li>命名规则：<ul>
+<li>前缀：lib</li>
+<li>库名称：自定义</li>
+<li>后缀 ： .a</li>
+<li>最终为：libxxx.a</li>
+</ul>
+</li>
+<li>先生成对应的二进制文件，最后打包生成静态库： ar   -rsc   libtest.a   a.o b.o c.o<ul>
+<li>参数： r  更新     c 创建    s建立索引</li>
+</ul>
+</li>
+</ul>
+<h5 id="静态库的使用"><a href="#静态库的使用" class="headerlink" title="静态库的使用"></a>静态库的使用</h5><ul>
+<li>gcc  -test.c  -I(大i)./   -L./  -l(小L)库的名字<ul>
+<li>大i  : 表示所需的头文件再当前目录</li>
+<li>L：表示要连接的库所在目录</li>
+<li>小L： 指定链接需要的库，去掉前缀和后缀</li>
+</ul>
+</li>
+</ul>
+<h5 id="动态库的制作"><a href="#动态库的制作" class="headerlink" title="动态库的制作"></a>动态库的制作</h5><p>程序运行的时候才会被载入</p>
+<ul>
+<li>第一步：生成对应的二进制文件 ：   gcc   -fpic  -c   add.c<ul>
+<li>参数：fpic  创建与地址无关的编译程序，为了能在多应用程序之间共享</li>
+</ul>
+</li>
+<li>第二步：链接生成对应的动态库：  gcc  -shared  add.o   sub.o  -o   libaa.so <ul>
+<li>参数： -shared   指定生成动态链接库</li>
+<li>前缀    lib     动态库名     后缀：.so</li>
+</ul>
+</li>
+<li>使用 nm  查看对应的函数      :   nm  libaa.so    | grep “add”  </li>
+<li>ldd  ： 查看可执行文件所依赖的库</li>
+<li>第三步：使用动态库： gcc  test.c -I ./  -L ./  -laa    会报错</li>
+</ul>
+<h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>​    进入调试界面：  gdb   可执行文件</p>
+<ul>
+<li>进行调试<ul>
+<li>set  args  设置运行时参数</li>
+<li>show  args   显示设置的参数</li>
+<li>run    程序开始执行，如果有断点就在断点处</li>
+<li>start  程序向下执行一行</li>
+</ul>
+</li>
+<li>显示源代码：<ul>
+<li>通过list  查看  默认只打印10行</li>
+<li>list  行数      打印第 多少行的上下文内容</li>
+<li>lis  函数名    打印函数的源代码</li>
+<li>list-  ： 显示当前行之前的源代码</li>
+<li>list   显示当前后的源代码</li>
+<li>设置一次显示多少行  ：<ul>
+<li>set  listsize  count   </li>
+<li>show  listsize </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置断点<ul>
+<li>使用break  简写b</li>
+<li>b   行数    表示在源代码的第多少行打断点</li>
+<li>b   函数名     表示在函数处打断点</li>
+</ul>
+</li>
+<li>多文件设置断点<ul>
+<li>break   文件名：第几行      表示在源代码第几行设置断点</li>
+<li>break   文件名：函数名      表示在源代码的函数入口处设置断点</li>
+</ul>
+</li>
+<li>查询断点<ul>
+<li>info   b</li>
+<li>i  b</li>
+</ul>
+</li>
+<li>设置条件断点：b  test.c:    23  if  i==5;       表示当第23行i = 5的时候就停下断点</li>
+<li>维护断点<ul>
+<li>delete   可以加指定范围       delete 7            delete  7-10    删除断点</li>
+<li>disable    断点号         使断点停用</li>
+<li>enable     断点号         使断点可以用</li>
+</ul>
+</li>
+</ul>
+<h5 id="调试代码"><a href="#调试代码" class="headerlink" title="调试代码"></a>调试代码</h5><ul>
+<li>run ： 运行程序   简写r</li>
+<li>next：单步跟踪，函数调用当做一条简单语句执行，  简写 n</li>
+<li>step：单步跟踪，函数调进入被调函数体内，简写s</li>
+<li>finish： 退出进入的函数</li>
+<li>until   ： 在一个循环体单步跟踪，这个命令可以跳出循环体，简写u</li>
+<li>continue ： 继续运行程序，停留在下一个断点处，简写c</li>
+<li>quit： 退出gdb，可以简写q</li>
+<li>查看运行中的值： print   打印变量，字符串，表达式的值 ，简写p</li>
+</ul>
+<h5 id="自动显示"><a href="#自动显示" class="headerlink" title="自动显示"></a>自动显示</h5><p>设置    一些自动显示的变量，当程序运行时，或者单步追踪的时候，自动显示</p>
+<ul>
+<li>display   变量名</li>
+<li>info   display        显示设置display 的信息</li>
+<li>undisplay    num  （info  的时候显示的num）     不在显示</li>
+<li>delete   display  num            删除自动显示</li>
+<li>disable   display  num          禁止 自动显示</li>
+<li>enable    display   num         允许自动显示</li>
+<li>disable  和 enable  不删除自动显示的设置，只是让他失效或者恢复</li>
+</ul>
+<h5 id="查看修改变量的值"><a href="#查看修改变量的值" class="headerlink" title="查看修改变量的值"></a>查看修改变量的值</h5><ul>
+<li>ptype  i     //查看i的数据类型</li>
+<li>p   i    // 查看i的值</li>
+<li>set  var  i = 10     //将变量i 设置为10</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

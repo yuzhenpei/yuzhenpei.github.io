@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Linux基础 - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Linux基础
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-14 11:55:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><ul>
+<li>pwd：查看当前目录</li>
+<li>cd ：切换目录   / 开头绝对路径   . 当前目录  ../返回上级目录</li>
+<li>mkdir ： 创建目录   -p 创建多级目录</li>
+<li>whoami  : 查看当前用户</li>
+<li>stat  ： 查看文件相关属性</li>
+<li>which ： 查看文件的路径</li>
+<li>chmod: 修改文件权限     chmod  444 test      // 4  2  1    w   r   x</li>
+<li>file  ：   查看文件类型</li>
+<li>rmdir：删除目录  （不能删除非空目录）  rm -rf 可以删除非空目录</li>
+<li>ls ： 查看信息  ls -l 查看详细信息   ls -a 查看全部信息  ls -lh   h表示内存大小</li>
+<li>touch : 创建文件，如果存在就更新文件时间</li>
+<li>cp ： v显示进度 f 强制  r 递归 （目录拷贝需要递归）<ul>
+<li>cp  file dir/   如果dir下有同名文件默认覆盖</li>
+<li>cp -i file dir/ 提示是否覆盖</li>
+<li>cp file1 file2  dir/   将多个文件拷贝到</li>
+<li>cp -r dir1 dir2  将目录1 拷贝到目录2中</li>
+</ul>
+</li>
+<li>rm ：删除文件或目录  （默认强制删除）<ul>
+<li>-i：提示是否删除</li>
+<li>-r：递归的删除目录下的内容，删除文件夹必须加这个</li>
+<li>-f：强制删除</li>
+</ul>
+</li>
+<li>mv : 移动文件或目录 <ul>
+<li>-i : 提示是否覆盖</li>
+<li>-f ：强制</li>
+<li>-v：显示进度</li>
+<li>mv file1 file2   将file1改名为file 2</li>
+<li>mv file dir/  将file移到dir下</li>
+</ul>
+</li>
+<li>cat ：将文件信息输出给终端<ul>
+<li>-n ：对输出的所有进行编号</li>
+<li>-b ： 给输出的非空行进行标号</li>
+<li>-A : 会打出换行符</li>
+</ul>
+</li>
+<li>more （不推荐使用）：查看，不能回退查看文件</li>
+<li>less：将文件内容分页展示给终端<ul>
+<li>ctrl+n   向下滑</li>
+<li>ctrl +p 向上滑</li>
+<li>q   退出</li>
+</ul>
+</li>
+<li>head ： 查看文件从开始到第n行<ul>
+<li>head -n 文件</li>
+<li>-c  查看多少个字符</li>
+<li>-f 动态显示</li>
+<li>-q  ：不显示头信息</li>
+<li>-v 显示头信息</li>
+</ul>
+</li>
+<li>tail ：从文件底部开始查看<ul>
+<li>tail -n 5 file  查看文件最后五行</li>
+<li>没有指定n的值的话，默认查看最后十行，其他跟head一样</li>
+</ul>
+</li>
+<li>du ：查看目录大小<ul>
+<li>du -sh 文件    查看指定文件或者数据块的大小并加上单位</li>
+<li>-a 递归显示指定目录个文件和子目录所占用的数据块</li>
+<li>-s</li>
+<li>-b  以字节为单位显示磁盘</li>
+<li>-h 以k，m，g为单位</li>
+</ul>
+</li>
+<li>df ： 查看文件磁盘空间占用和可用情况<ul>
+<li>df -h</li>
+</ul>
+</li>
+<li>find： 非常实用，查看文件<ul>
+<li>find + 路径+ -name +“文件名”</li>
+<li>find+路径+ -size +范围            +100k表示大于100k，-100k表示小于100k，k小写，M大写  -size +50k  -size -100k 50k到100k之间</li>
+<li>find + 路径+ -type +类型<br>普通文件是用f 而不是_         d目录 l 符号链接 c块设备文件 c字设备文件  s socket文件  p管道 </li>
+</ul>
+</li>
+<li>grep ： 匹配进行查找<ul>
+<li>grep + 选项+ ‘ 搜索的内容串 ’ + 文件名<ul>
+<li>-i  忽略大小写</li>
+<li>-v  不包含搜索的内容</li>
+<li>-n  包含搜索的内容的行号</li>
+<li>搜索目录的时候需要加  -r</li>
+<li>-a 二进制文件</li>
+<li>-w 完全匹配的那一行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>管道   | ：一个命令的输出可以作为另一个命令的输入</li>
+<li>tar： linux中最常用的备份工具，把一系列文档归档到一个大文件中，也可以将档案文件解开恢复数据<br>格式：tar 选项打包文件名  文件<ul>
+<li>-c  生成档案文件 ，创建打包文件</li>
+<li>-v  列出打包的过程  进度</li>
+<li>-f   指定档案文件名称  ，f 后面一定跟的是.tar文件，所以必须放选项最后</li>
+<li>-t   列出档案中包含的文件</li>
+<li>-x   解开档案文件<br>一般组合使用：</li>
+<li>tar -cvf  yzpcode.tar   yzpcode    // 打包</li>
+<li>tar -xvf  yzpcode.tar    // 将打包的文件归档还原</li>
+<li>tar  -tvf  yzpcode.tar   // 查看里面是否有自己需要的文件</li>
+</ul>
+</li>
+<li>gzip ：tar与gzip命令结合使用 实现文件打包和压缩    大文件一般使用gzip<ul>
+<li>默认是压缩  后面直接跟需要压缩的文件，不保留原文件压缩</li>
+<li>tar 只负责打包文件不负责压缩，gzip负责压缩tar打包后的文件 ， 其扩展名 一般为 ##.tar.gz</li>
+<li>格式： gzip   选项  被压缩的文件<ul>
+<li>-d  解压</li>
+<li>-r   压缩所有子目录</li>
+</ul>
+</li>
+<li>目录一定要先打包在压缩</li>
+<li><strong>组合使用</strong>：<ul>
+<li>tar  -czvf   yzpcode.tar.gz  yzpcode    // 先打包再进行压缩     可以指定压缩到哪里需要使用绝对路径</li>
+<li>tar  -xzvf   yzpcode.tar.gz   //对压缩后的文件进行解压    如果需要指定解压到哪一个目录 在后面 加   -C  路径</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>bzip2 ： 跟gzip 相同   后缀名不一样为  .bz2     小文件一般使用 bzip2<ul>
+<li>结合tar  ： 压缩 ： tar -jcvf   yzpcode.tar.bz2   yzp</li>
+<li>解压：tar -jxvf  yzpcode.tar.bz2</li>
+<li>万能解压   ：   tar -xvf     万能解压（可以解压gzip和bzip2）</li>
+</ul>
+</li>
+<li>zip 和 unzip  ：<ul>
+<li>zip  myzip    文件…     myzip就是压缩文件名称 不需要加后缀，后面的文件可以跟多个，打包和压缩到myzip</li>
+<li>unzip  myzip.zip    解压文件    unzip -d  路径   myzip.zip  加压文件到指定路径</li>
+</ul>
+</li>
+<li>访问权限：<ul>
+<li>r  ： 读权限  <ul>
+<li>文件：具有读取文件内容的权限</li>
+<li>目录： 具有浏览目录的权限</li>
+</ul>
+</li>
+<li>w： 写权限<ul>
+<li>文件：具有新增，修改的权限</li>
+<li>目录：具有删除，移动目录内文件的权限</li>
+</ul>
+</li>
+<li>x  ： 可执行权限<ul>
+<li>文件：具有文件执行的权限</li>
+<li>目录：该用户有进入目录的权限<br>只允许文件的所属者或者超级管理员可以修改文件的读写权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>chmod （需要熟练）：改变文件权限<ul>
+<li>字母法：chmod  u/g/o/a  +/-/=  rwx<ul>
+<li>u  :  文件的所有者</li>
+<li>g ： 与user 同组的</li>
+<li>o  ： 其他以外的人</li>
+<li>+：新增权限</li>
+<li>-：撤销权限</li>
+<li>=：设定权限<br>例子：chmod o+w   a.txt   为文件a的其他用户增加写的权限<br>chmod u=rw,g=r,o=r a.txt  设置user可读写，组内可读，外面可读</li>
+</ul>
+</li>
+<li>数字法：chmod   764   a.txt    <ul>
+<li>rwx     111   ====》7</li>
+<li>rw-      110 =====》 6</li>
+<li>r–       100  =====》 4 </li>
+<li>r-x      101  ====》5</li>
+</ul>
+</li>
+<li>修改目录 和 里面文件的权限   chmod  -R  777  test/</li>
+</ul>
+</li>
+<li>chown  ： 修改目录所有者   sudo  chown  root  a.txt    // 将a.txt 的所属者修改为root<br>sudo  chown : root a.txt  //将a.txt 的所属组改为root</li>
+<li>重定向：<ul>
+<li>标准输出是显示到屏幕上，使用  ls   内容    &gt;  文件名    ，将ls 显示的内容   输入到文件中显示，但是会覆盖文件原本的内容，，如果不想覆盖  就使用  &gt;&gt;  追加到文件里面</li>
+<li>标准错误输出，ls  dasf     （使用2&gt;）2&gt;&gt;  文件    将错误输出到文件里面， 一般丢在黑洞文件里面   /dev/null</li>
+</ul>
+</li>
+<li>ln (掌握):<ul>
+<li>软连接不占磁盘空间，原文件删除软链接失效  </li>
+<li>硬链接只能链接普通文件，不能链接目录</li>
+<li>ln  源文件  链接文件    //硬链接</li>
+<li>ln  -s 源文件  链接文件    // 软连接   并没有存储文件的数据，只存储文件的路径   readlink  可以读取符号链接的内容（存储目标文件的路径）</li>
+</ul>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

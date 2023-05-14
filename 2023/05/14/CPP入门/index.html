@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="不走信的努力都是在敷衍自己">
+    <meta property="og:type" content="website">
+    <meta name="description" content="不走信的努力都是在敷衍自己">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        CPP入门 - yzpcode 日常
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Rich_yzpcode</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#page-facing-up-%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0"><span class="toc-text">:page_facing_up:第一天笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">:pencil: 结构体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%85%B1%E7%94%A8%E4%BD%93"><span class="toc-text">:pencil: 共用体</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="toc-text">:pencil: 内存对齐</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E9%A2%84%E7%BC%96%E8%AF%91%E5%92%8C%E9%A2%84%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">:pencil: 预编译和预编译器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-text">:pencil: 反编译</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-text">:pencil: 宏定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-facing-up-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0"><span class="toc-text">:page_facing_up:第二天笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E6%8C%87%E9%92%88"><span class="toc-text">:pencil:指针</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%87%BD%E6%95%B0"><span class="toc-text">:pencil:函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-new%E7%94%B3%E8%AF%B7%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="toc-text">:pencil:new申请内存空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E6%96%87%E4%BB%B6"><span class="toc-text">:pencil:文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-facing-up-%E7%AC%AC%E4%B8%89%E5%A4%A9%E7%AC%94%E8%AE%B0"><span class="toc-text">:page_facing_up:第三天笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-const"><span class="toc-text">:pencil:const</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-const%E4%B8%8E%E6%8C%87%E9%92%88"><span class="toc-text">:pencil:const与指针</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-pragma-once"><span class="toc-text">:pencil:#pragma once</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-facing-up-%E7%AC%AC%E5%9B%9B%E5%A4%A9%E7%AC%94%E8%AE%B0"><span class="toc-text">:page_facing_up:第四天笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-text">:pencil:函数定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-text">:pencil:命名规范</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0-inline"><span class="toc-text">:pencil:内联函数   inline</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E7%B1%BB%E5%A4%96%E5%AE%9A%E4%B9%89-inline"><span class="toc-text">:pencil:类外定义   inline</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-%E7%B1%BB%E5%86%85%E5%AE%9A%E4%B9%89"><span class="toc-text">:pencil:构造函数   类内定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="toc-text">:pencil:初始化列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#page-facing-up-%E7%AC%AC%E4%BA%94%E5%A4%A9%E7%AC%94%E8%AE%B0"><span class="toc-text">:page_facing_up:第五天笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88%E6%88%90%E5%91%98"><span class="toc-text">:pencil:对象指针成员</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-this%E6%8C%87%E9%92%88"><span class="toc-text">:pencil:this指针</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%B8%B8%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-text">:pencil:常成员函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-text">:pencil:深拷贝和浅拷贝</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="toc-text">:pencil:友元函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E7%BB%A7%E6%89%BF"><span class="toc-text">:pencil:继承</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%90%8C%E5%90%8D%E9%9A%90%E8%97%8F"><span class="toc-text">:pencil:同名隐藏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF"><span class="toc-text">:pencil:多重继承</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E5%A4%9A%E7%BB%A7%E6%89%BF"><span class="toc-text">:pencil:多继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E5%A4%A9"><span class="toc-text">第六天</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF"><span class="toc-text">:pencil:菱形继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%A4%A9"><span class="toc-text">第七天</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pencil-RTTI"><span class="toc-text">:pencil:RTTI</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vector"><span class="toc-text">vector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-text">list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-text">map</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 世界上所有的不利因素都是当事人能力不足所导致的 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        CPP入门
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-05-14 12:09:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#c++" title="c++">c++</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="page-facing-up-第一天笔记"><a href="#page-facing-up-第一天笔记" class="headerlink" title=":page_facing_up:第一天笔记"></a>:page_facing_up:第一天笔记</h3><ol>
+<li>char数组字符串 的 处理函数用法   字符数组最后一位需要<code>\0</code>占位</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strcat</span>(<span class="string">&quot;字符串1&quot;</span>,<span class="string">&quot;字符串2&quot;</span>);将字符串<span class="number">2</span>拼接到字符数组<span class="number">1</span>中，字符数组<span class="number">1</span>的长度必须能容纳的了加入的字符串<span class="number">2</span>；</span><br><span class="line"><span class="built_in">strcpy</span>(<span class="string">&quot;字符串1&quot;</span>,<span class="string">&quot;字符串2&quot;</span>);将字符串<span class="number">2</span>覆盖字符数组<span class="number">1</span>，会覆盖字符数组<span class="number">1</span>里面对应的字符,字符串不能用等号直接赋值</span><br><span class="line"><span class="built_in">strcmp</span>(<span class="string">&quot;字符串1&quot;</span>,<span class="string">&quot;字符串2&quot;</span>);有返回值，相等返回<span class="number">0</span>；非零表示不相等</span><br></pre></td></tr></table></figure>
+
+<h5 id="pencil-结构体"><a href="#pencil-结构体" class="headerlink" title=":pencil: 结构体"></a>:pencil: <strong>结构体</strong></h5><p>结构体是一种自定义数据类型，结构体变量代表的结构体类型的数据对象作为一个整体存储在内存中</p>
+<p>成员占各自的内存空间，大小为各自成员所占空间加填充的空间</p>
+<p>枚举类型里面就是整型</p>
+<p><code>typedef</code>关键字为类型结构起别名</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>&#123;</span></span><br><span class="line">    数据类型 字段名;</span><br><span class="line">&#125;stu;</span><br><span class="line">stu 就是 <span class="class"><span class="keyword">struct</span> <span class="title">Student</span>的同义词</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>普通结构体变量，访问成员变量：结构体变量.成员名;</p>
+</li>
+<li><p>指针结构体变量，结构体指针名-&gt;成员名，或者(*结构体指针名).成员名</p>
+<p><code>c2 = (struct stu*)malloc(sizeof(struct stu))</code>，创建一个stu结构体指针名为c2</p>
+</li>
+</ul>
+<p>c++中的结构体可以有封装，给变量加上访问限制符，里面也可以定义方法包，跟类只有默认访问限制符不同，其他都相同</p>
+<h5 id="pencil-共用体"><a href="#pencil-共用体" class="headerlink" title=":pencil: 共用体"></a>:pencil: <strong>共用体</strong></h5><p>共用体跟结构体的创建一样，只是关键字不同，union</p>
+<p>对成员的访问跟结构体一样</p>
+<p>所有成员共占一块内存，大小为成员所占空间大小的最大一个，后面赋值的会覆盖前面的值</p>
+<h5 id="pencil-内存对齐"><a href="#pencil-内存对齐" class="headerlink" title=":pencil: 内存对齐"></a>:pencil: <strong>内存对齐</strong></h5><p>目的为了提高代码运行</p>
+<h5 id="pencil-预编译和预编译器"><a href="#pencil-预编译和预编译器" class="headerlink" title=":pencil: 预编译和预编译器"></a>:pencil: <strong>预编译和预编译器</strong></h5><p>预编译又叫预处理，完成代码文本的替换工作，处理由#开头的预编译指令，如拷贝#include头文件代码</p>
+<h5 id="pencil-反编译"><a href="#pencil-反编译" class="headerlink" title=":pencil: 反编译"></a>:pencil: <strong>反编译</strong></h5><p>编译的逆过程，将编译好的文件还原为源代码</p>
+<h5 id="pencil-宏定义"><a href="#pencil-宏定义" class="headerlink" title=":pencil: 宏定义"></a>:pencil: <strong>宏定义</strong></h5><p>由#所表示的代码，#include 是将后面文件的内容拷贝过来替换#include这一行代码，#define 是定义一个常量，是在C语言编译代码之前，由宏编译器执行 &lt;&gt;里面是在系统文件夹里面去找，“ ”是去当前项目头文件下去找，，，定义的#define是字符串替换，将后面的完全替换，宏函数：<code>#define MAX(x,y) (x)&gt;(y)?(x):(y)</code>，功能简单，代码短小的时候使用宏函数，或者需要提升效率，宏函数是在编译之前就完成编译</p>
+<h3 id="page-facing-up-第二天笔记"><a href="#page-facing-up-第二天笔记" class="headerlink" title=":page_facing_up:第二天笔记"></a>:page_facing_up:第二天笔记</h3><h5 id="pencil-指针"><a href="#pencil-指针" class="headerlink" title=":pencil:指针"></a>:pencil:<strong>指针</strong></h5><p>对于每一个变量，计算机都指定一段内存空间存储变量的值，变量使用这段内存空间的开始地址，我们称之为变量的地址，C语言中叫指针，存储（指向）这段内存的起始地址，二级指针是存放一级指针的地址</p>
+<ol>
+<li><p>一个指针变量，无论它指向的变量占几个字节，该指针变量本身占4个字节（32位），8个字节（64位）</p>
+</li>
+<li><p>一个变量的地址使用该变量首字节的地址来表示</p>
+</li>
+<li><p>指针就是地址，地址就是指针。 而地址是内存单元的编号。所以，一个指针占几个字节，等于是一个地址的内存单元编号有多长。</p>
+</li>
+</ol>
+<h5 id="pencil-函数"><a href="#pencil-函数" class="headerlink" title=":pencil:函数"></a>:pencil:<strong>函数</strong></h5><ol>
+<li>返回值不能是局部变量的地址值，因为在函数执行完，会回收局部变量的内存空间</li>
+<li>值传递不会改变原拷贝的值，地址传递会改变原本的值，&amp;引用可以改变原本的值，&amp;相当于只起别名</li>
+</ol>
+<h5 id="pencil-new申请内存空间"><a href="#pencil-new申请内存空间" class="headerlink" title=":pencil:new申请内存空间"></a>:pencil:<strong>new申请内存空间</strong></h5><ol>
+<li><p>stack里面的操作一般是计算机帮我们完成，会帮我们完成申请内存和回收内存的操作</p>
+</li>
+<li><p>使用new 申请的空间在完成操作后需要delete掉，需要自己回收内存，在使用前最好NULL判断一下</p>
+</li>
+<li><p>使用new运算符时必须已知数据类型，new运算符会向系统堆区申请足够的存储空间，如果申请成功，就返回该内存块的首地址，如果申请不成功，则返回零值。</p>
+</li>
+<li><p>new运算符返回的是一个指向所分配类型变量（对象）的指针。对所创建的变量或对象，都是通过该指针来间接操作的，而动态创建的对象本身没有标识符名。</p>
+</li>
+<li><p>new int// //开辟一个存放整数的存储空间,返回一个指向该存储空间的地址。int *a = new int 即为将一个int类型的地址赋值给整型指针a</p>
+</li>
+<li><p>int *a = new int(5) //作用同上,但是同时将整数空间赋值为5</p>
+</li>
+<li><p>指针变量名=new 类型名[下标表达式] </p>
+<p>delete [ ] 指向该数组的指针变量名;，如果在delete的时候没有加[]则默认值删除这片空间的第一个</p>
+</li>
+</ol>
+<h5 id="pencil-文件"><a href="#pencil-文件" class="headerlink" title=":pencil:文件"></a>:pencil:<strong>文件</strong></h5><ol>
+<li><p>文件指针：FILE* 定义一个文件指针，FILE是一个文件结构体</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FILE* fp;</span><br><span class="line">fp = fopen(文件名，使用方式);<span class="comment">//打开文件</span></span><br><span class="line">fclose(fp);<span class="comment">//关闭文件</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="page-facing-up-第三天笔记"><a href="#page-facing-up-第三天笔记" class="headerlink" title=":page_facing_up:第三天笔记"></a>:page_facing_up:第三天笔记</h3><h5 id="pencil-const"><a href="#pencil-const" class="headerlink" title=":pencil:const"></a>:pencil:<strong>const</strong></h5><ol>
+<li><p>const修饰基本数据类型，表示常量，定义了就不能发生改变了</p>
+</li>
+<li><p>const修饰指针类型，const修饰谁，谁就不能变了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="type">const</span> *p=&amp;x;<span class="comment">//这种方式不能改变*p=3所指向内存的值，但是可以改变p的指向p=&amp;a</span></span><br><span class="line"><span class="comment">//这种是不能改变值，但是p可以指向别的内存地址</span></span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p=&amp;x;<span class="comment">//这种方式不能改变p的指向，但是可以改变*p里面内存的值</span></span><br><span class="line"><span class="comment">//这种是不能指向别的地址，但是可以改变内存里面的值</span></span><br></pre></td></tr></table></figure></li>
+<li><p>const修饰函数参数</p>
+</li>
+<li><p>#define 和const定义的常量有什么区别</p>
+<ol>
+<li>#define 是由预编译器检查的，只是将前面的字符串和后面的替换掉，不止有定义常量的这个功能</li>
+<li>const 是由编译器进行检查的，通过数据类型进行检查，相对而言比较严谨，定义常量更推荐这个</li>
+</ol>
+</li>
+</ol>
+<h5 id="pencil-const与指针"><a href="#pencil-const与指针" class="headerlink" title=":pencil:const与指针"></a>:pencil:<strong>const与指针</strong></h5><ol>
+<li><p>普通指针 <code>int *p</code>    </p>
+<p>没有const限定的普通指针只能指向普通类型变量，不能指向const常量</p>
+<p>因为const常量是不能被修改的，只有读的功能，普通指针具有读写两种功能，有修改所指对象的可能性</p>
+</li>
+<li><p>指向常量的指针 <code>const int *p或者 int const *p</code>    不能修改对象的值</p>
+<p>虽然叫指向常量的指针，但是这种定义既可以指向const常量也可以指向普通类型变量</p>
+<p>指向常量类型是指，定义这个指针的目的是通过指针去访问所指的对象，而无意修改对象的值，所以把对象当做常量来看待</p>
+<p>使用const指针的目的是避免通过指针修改对象值得可能性</p>
+</li>
+<li><p>常量指针  <code>int * const p = &amp;a;</code>   不能修改指针的值（指针的指向）</p>
+<p>常量指针和const常量类似，在定义的时候必须进行初始化，且整个生命周期指针的值都不会改变（指针的指向）</p>
+<p>使用常量指针的目的是防止指针的值（指针的指向）在后续的使用中被意外修改，而错误的对其他对象进行操作</p>
+</li>
+<li><p>指向常量的常量指针 <code>const int *const p = &amp;a;</code></p>
+<p>既是常量指针（不能改变指针的指向），又是指向常量的指针（不能修改对象的值）</p>
+<p>在c++类中的const 成员变量对应的*this指针就是这种</p>
+</li>
+</ol>
+<h5 id="pencil-pragma-once"><a href="#pencil-pragma-once" class="headerlink" title=":pencil:#pragma once"></a>:pencil:<strong>#pragma once</strong></h5><p>为了避免同一个头文件被包含（include）多次,避免头文件被多次编译而出错</p>
+<ol>
+<li><p>:pencil:<strong>类与对象</strong></p>
+<ol>
+<li><p>类的定义</p>
+<ol>
+<li>对象和结构体的区别<ol>
+<li>定义时候的关键字不同 类class 结构体struct</li>
+<li>默认访问权限不同，类是private，结构体public</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>封装</p>
+</li>
+<li><p>对象</p>
+<ol>
+<li><p>创建对象 </p>
+<p>在栈中创建一个对象 User user;使用点访问其成员变量，计算机帮我们回收内存</p>
+<p>在堆中创建一个对象 User *user = new User();使用-&gt;访问，需要自己回收内存</p>
+<ol>
+<li>一般在heap中创建一个指针，我们需要对齐进行判断NULL再进行处理</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>​      这些你不知道你寄吧java白学了。。。。</p>
+<h3 id="page-facing-up-第四天笔记"><a href="#page-facing-up-第四天笔记" class="headerlink" title=":page_facing_up:第四天笔记"></a>:page_facing_up:第四天笔记</h3><h5 id="pencil-函数定义"><a href="#pencil-函数定义" class="headerlink" title=":pencil:函数定义"></a>:pencil:<strong>函数定义</strong></h5><ol>
+<li>类内定义建议编译器内联方式编译</li>
+<li>类外定义</li>
+</ol>
+<h5 id="pencil-命名规范"><a href="#pencil-命名规范" class="headerlink" title=":pencil:命名规范"></a>:pencil:<strong>命名规范</strong></h5><ol>
+<li>类名首字母大写，与文件名同名，函数跟Java方法定义一样，动宾结合</li>
+<li>数据成员以（m_类型）做前缀 int m_i;</li>
+</ol>
+<h5 id="pencil-内联函数-inline"><a href="#pencil-内联函数-inline" class="headerlink" title=":pencil:内联函数   inline"></a>:pencil:<strong>内联函数   inline</strong></h5><p>定义在类内部或者加上inline关键字</p>
+<p>编译时将函数体代码和实参替代函数调用语句，相当于直接调用方法，省去查找和返回的时间，逻辑比较简单的时候可以使用内联函数</p>
+<ol>
+<li><p>内联函数和宏函数</p>
+<p>功能效果都一样，宏函数是做简单的字符串替换，需要预编译器，内联函数需要编译器</p>
+<p>内联函数的形参需要加数据类型，宏函数不需要加数据类型存在潜在风险</p>
+</li>
+</ol>
+<h5 id="pencil-类外定义-inline"><a href="#pencil-类外定义-inline" class="headerlink" title=":pencil:类外定义   inline"></a>:pencil:<strong>类外定义   inline</strong></h5><ol>
+<li><p>同文件定义</p>
+</li>
+<li><p>分文件定义</p>
+<p>将类定义在头文件里面，方法只做声明，然后在源文件下进行方法实现</p>
+<p>在头文件中定义，在源文件中进行初始化</p>
+</li>
+</ol>
+<h5 id="pencil-构造函数-类内定义"><a href="#pencil-构造函数-类内定义" class="headerlink" title=":pencil:构造函数   类内定义"></a>:pencil:<strong>构造函数</strong>   类内定义</h5><ol>
+<li><p>对象的存储结构</p>
+<p>堆区，栈区，常量区，代码区，全局区</p>
+</li>
+<li><p>对象初始化    相当于二次写入</p>
+<p>默认构造函数和里面有默认参数会冲突</p>
+<p>使用构造函数在创建对象的时候对对象进行初始化   </p>
+</li>
+<li><p>这个跟java一样，语法不同而已</p>
+</li>
+</ol>
+<h5 id="pencil-初始化列表"><a href="#pencil-初始化列表" class="headerlink" title=":pencil:初始化列表"></a>:pencil:<strong>初始化列表</strong></h5><p>   在对象初始化时，先调用初始化列表在调用构造函数</p>
+<ol>
+<li><p>速度快（推荐）  可以为const常量进行初始化赋值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// User.h</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>&#123;</span></span><br><span class="line">public:</span><br><span class="line">    User();</span><br><span class="line">    User(String name,<span class="type">int</span> id,<span class="type">int</span> password);</span><br><span class="line">private:</span><br><span class="line">    <span class="built_in">string</span> m_strName;</span><br><span class="line">    <span class="type">int</span> m_userId;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> m_password;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//User.cpp</span></span><br><span class="line">User()&#123;&#125;;</span><br><span class="line">User::User(<span class="built_in">string</span> name,<span class="type">int</span> id,<span class="type">int</span> password):m_strName(name),m_userId(id),m_password(password)&#123;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>:pencil:<strong>对象初始化</strong></p>
+<ol>
+<li>直接初始化 int x = 1024;</li>
+<li>复制初始化 User user2(user1);</li>
+</ol>
+</li>
+<li><p>:pencil:<strong>拷贝构造函数</strong></p>
+<p>类名（const 类名&amp;变量名）</p>
+<p>如果没有自定义的拷贝构造函数系统会自动生成，如果有自定义，系统不会自动生成</p>
+<p>当对象直接初始化或者复制初始化的时候，自动调用拷贝构造函数 </p>
+<p>函数传参调用的是拷贝构造函数，实参是一个对象    </p>
+</li>
+<li><p>:pencil:<strong>析构函数</strong>   ~类名</p>
+<p>没有参数，没有返回值，不能重载</p>
+<p>对象销毁的时候析构函数会自动调用，栈中和堆中都会。</p>
+<p>成员变量是一个指针，并且在构造函数的时候为指针申请了空间，我们需要自定义析构函数来为指针释放内存空间，防止内存泄漏</p>
+</li>
+<li><p>:pencil:<strong>对象成员</strong></p>
+<p>创建对象的时候先调用对象成员的构造函数再调用对象的构造函数，在销毁的时候先调用对象的析构函数再调用对象成员的析构函数</p>
+<ol>
+<li>如果对象成员有自定义构造函数的时候需要用初始化列表的方式先进行初始化操作</li>
+</ol>
+</li>
+<li><p>:pencil:<strong>对象数组</strong></p>
+<ol>
+<li>堆中创建和栈中创建</li>
+<li>在堆中创建的对象数组构造函数调用数组长度那么多次，在销毁的时候需要delete [] p，析构函数调用对象个数那么多次; 不加[]的话默认删除数组的第一个元素，析构函数只调用了一次</li>
+</ol>
+</li>
+<li><p>:pencil:<strong>静态数据成员</strong></p>
+<ol>
+<li>普通数据成员存在栈中或者堆中，静态数据成员存在全局区</li>
+<li>定义在类的public下面，static修饰，访问的时候不需要实例化对象就可以对其进行访问</li>
+<li>静态函数里面只能使用静态数据成员，，，，这个跟java一样</li>
+<li>非静态数据成员可以访问静态数据成员</li>
+</ol>
+</li>
+</ol>
+<h3 id="page-facing-up-第五天笔记"><a href="#page-facing-up-第五天笔记" class="headerlink" title=":page_facing_up:第五天笔记"></a>:page_facing_up:第五天笔记</h3><h5 id="pencil-对象指针成员"><a href="#pencil-对象指针成员" class="headerlink" title=":pencil:对象指针成员"></a>:pencil:<strong>对象指针成员</strong></h5><p>对象指针作为另外一个对象的成员</p>
+<p>在构造函数里面为别的对象指针申请内存后，需要在该对象的析构函数里面为对象指针释放内存</p>
+<h5 id="pencil-this指针"><a href="#pencil-this指针" class="headerlink" title=":pencil:this指针"></a>:pencil:<strong>this指针</strong></h5><p>指向实例化对象的首地址，跟java的this基本一样</p>
+<h5 id="pencil-常成员函数"><a href="#pencil-常成员函数" class="headerlink" title=":pencil:常成员函数"></a>:pencil:<strong>常成员函数</strong></h5><p>声明方式是在函数声明后面加一个const，在定义的时候再后面也加一个const，</p>
+<ol>
+<li><p>在常成员函数里面不能对数据成员进行修改，实质是在函数的传参中默认传递一个const *当前对象指针，这类指针无法修改值</p>
+</li>
+<li><p>加const和不加const同名的函数互为重载</p>
+</li>
+<li><p>调用常成员函数必须是常对象或者常对象指针或常对象引用，常对象实例：在实例对象的的前面加一个const或者后面</p>
+<p>常对象指针：对象名 const * p = new 对象();，常对象引用：对象名 const &amp;别名= 实例的对象</p>
+</li>
+</ol>
+<h5 id="pencil-深拷贝和浅拷贝"><a href="#pencil-深拷贝和浅拷贝" class="headerlink" title=":pencil:深拷贝和浅拷贝"></a>:pencil:<strong>深拷贝和浅拷贝</strong></h5><ol>
+<li><p>浅拷贝（系统默认的拷贝构造函数）</p>
+<p>使用场景：只有简单的成员变量，没有在指针，没有向堆中申请内存</p>
+</li>
+<li><p>深拷贝（自定义拷贝构造函数）</p>
+<p>在自定义拷贝构造函数的时候，在申请堆内存的时候用传入的对象的指针访问他的成员为其进行初始化</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User::User(<span class="type">const</span> User &amp;c)&#123;</span><br><span class="line">    m_pointer = new UserDo(c.m_pointer-&gt;id,c.m_pointer-&gt;name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="pencil-友元函数"><a href="#pencil-友元函数" class="headerlink" title=":pencil:友元函数"></a>:pencil:<strong>友元函数</strong></h5><p>​    友元是不可传递的，是单向的</p>
+<ol>
+<li><p>全局友元函数：friend 类型  函数名 (参数表);  可以参数列表传当前对象的引用，可以访问private成员属性</p>
+</li>
+<li><p>友元成员函数：friend 类型  类名：： 函数名 (参数表);，其他类的友元函数，类名表示属于哪个类的</p>
+<p>需要再调用友元函数的那个类前面声明 友元函数的类 class 类名；</p>
+</li>
+<li><p>目的：希望某些类可以访问自己的私有成员变量，定向暴露</p>
+</li>
+<li><p>不受访问限定符的限制，尽量写在前面</p>
+</li>
+<li><p>:pencil:**友元类 **  fried 类名；</p>
+<p>当一个类需要深入的去调用另外一个类的时候，并且被调的类也不能被修改，才使用友元类</p>
+<p>友元是一种补救的语法，应该尽量避免，尽量减少友元的声明次数</p>
+</li>
+</ol>
+<h5 id="pencil-继承"><a href="#pencil-继承" class="headerlink" title=":pencil:继承"></a>:pencil:<strong>继承</strong></h5><p>默认为私有继承，class A ：private B  一般使用public，权限最大 ，外部调用只限于public部分</p>
+<p>protect只能在当前类或者子类中使用，创建子类的实例无法再外部进行访问</p>
+<ol>
+<li>实例化子类的时候先执行父类的构造函数，在销毁对象的时候先执行子类的析构函数</li>
+<li>父类的private下面的成员不会被子类继承，只会继承到子类的不可见位置，但是不能进行访问，就相当于会为他分配内存空间，但无法访问，需要通过父类的可访问函数进行访问</li>
+</ol>
+<p>保护继承：protect，父类里面的public和protect部分都继承到子类的protect下，private下面跟public一样</p>
+<p>私有继承：private，父类的public和protect都继承到子类的private下面，private继承到不可见地方</p>
+<h5 id="pencil-同名隐藏"><a href="#pencil-同名隐藏" class="headerlink" title=":pencil:同名隐藏"></a>:pencil:<strong>同名隐藏</strong></h5><p>子类的函数名和父类的函数名相同， 子类的函数会将父类的函数隐藏，类似于Java的重写，父类的函数不能被直接调用，可以间接调用，子类实例  . 父类：： 函数；</p>
+<h5 id="pencil-多重继承"><a href="#pencil-多重继承" class="headerlink" title=":pencil:多重继承"></a>:pencil:<strong>多重继承</strong></h5><p>跟Java一样。。。</p>
+<h5 id="pencil-多继承"><a href="#pencil-多继承" class="headerlink" title=":pencil:多继承"></a>:pencil:<strong>多继承</strong></h5><p>子类不只拥有一个父类</p>
+<ol>
+<li>都需要声明继承方式public或者protect，子类可以使用所有来自父类的可见属性和方法</li>
+</ol>
+<h3 id="第六天"><a href="#第六天" class="headerlink" title="第六天"></a>第六天</h3><h5 id="pencil-菱形继承"><a href="#pencil-菱形继承" class="headerlink" title=":pencil:菱形继承"></a>:pencil:<strong>菱形继承</strong></h5><p>存在臃裕</p>
+<p>:pencil:<strong>虚继承</strong></p>
+<p>在产生了菱形继承时，virtual加在第二层到第一层的继承关系</p>
+<ul>
+<li>virtual 在继承public前面加（推荐）</li>
+<li>内存上，a，b、c，d，这种关系中，d中只会有a的一份数据，然后取bc的不同</li>
+<li>解决了访问模糊的问题</li>
+</ul>
+<p>:pencil:<strong>虚函数</strong></p>
+<p>父类指针指向子类对象，通过指针调用子类的成员方法的过程叫做多态</p>
+<p>在父类的方法上加一个virtual就可以实现上面的行为</p>
+<ul>
+<li><p>父类指针调用子类函数的副作用</p>
+<p>在子类中向堆里面申请了内存空间，而在使用完指针后只调用父类的析构函数，而子类申请的内存不会被释放，产生内存泄漏，所以在父类的析构函数前面声明为virtual，后面释放的时候会先执行子类的析构函数（虚函数），再执行执行子类的父类的析构函数</p>
+</li>
+</ul>
+<p>:pencil:<strong>虚函数的实现原理</strong></p>
+<ul>
+<li><p>:pencil:<strong>函数指针</strong></p>
+<p>函数存在于代码区，函数二进制代码的首地址存在一个指针中，这个指针就是函数指针</p>
+<p>虚函数表是存放地址的数组也就是函数指针，虚函数指针通过查看虚函数表的方式来调用虚函数，普通函数不占内存，虚函数会占内存    </p>
+</li>
+<li><p>:pencil:<strong>纯虚函数</strong></p>
+<p>也叫抽象类，含有纯虚函数的类叫做抽象类，抽象类不能实例化只能被继承，声明为virtual函数，不做定义赋值为0，但是子类继承的时候要调用的话必须再子类中实现这个方法</p>
+</li>
+<li><p>:pencil:<strong>接口类</strong></p>
+<p>仅含有纯虚函数的类叫做接口类，无成员变量等</p>
+<ul>
+<li>抽象类用于表达不完全的实体概念</li>
+<li>接口类用于表达一种强制协议或能力</li>
+</ul>
+</li>
+</ul>
+<h3 id="第七天"><a href="#第七天" class="headerlink" title="第七天"></a>第七天</h3><h5 id="pencil-RTTI"><a href="#pencil-RTTI" class="headerlink" title=":pencil:RTTI"></a>:pencil:RTTI</h5><p>当看到父类指针的时候，你希望知道他指向的对象的数据类型，因为不同的对象要做不同的处理</p>
+<p>Cpp的数据类型转换：</p>
+<ul>
+<li>int y = static_cast<int>(x);基本数据类型</li>
+<li>Shape *p1 = new Circle(2.0);   Circle *p2 = dynameic_cast&lt;Circle *&gt;(p);指针类型  （多态中使用）</li>
+<li>int x= 1000;   int *q = reinterpret_cast&lt;int *&gt; (x);   将基本数据类型转换为指针类型 （很危险）<ul>
+<li>const int x = 2;  int *p = const_cast&lt;int *&gt;(&amp;x);  const和非const的转换  （不推荐使用）</li>
+</ul>
+</li>
+</ul>
+<p>typeid(*对象).name()   判断指针的类型</p>
+<p>:pencil:<strong>异常处理</strong></p>
+<p>try catch 跟Java类似不在多说。</p>
+<p>空throw语句只能在catch里面使用，catch处理不了异常，再往外抛，catch(…)放在catch语句的最后面，前面捕获不了的异常都由catch(…)来捕获（一般放在最后面），什么都可以捕获</p>
+<p>:pencil:<strong>运算符重载</strong></p>
+<p>关键字<code>operatpr</code></p>
+<ul>
+<li>一元运算符<ul>
+<li>成员函数做运算符重载，用operator声明一个成员函数，重载实际是调用这个成员函数实现的（是通过对象.的方式调用（参数列表是this指针））</li>
+<li>友元函数做运算符重载，用friend 类 operator（类  &amp;对象的引用）来声明函数（相当于是全局函数里面参数是对象本身）</li>
+</ul>
+</li>
+</ul>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>跟java的泛型使用是基本类似的</p>
+<ul>
+<li>函数模板<ul>
+<li>泛型编程</li>
+<li>定义一个函数模板   template &lt;typename  T 或者 class T，后面还可以加模板参数（相当于常数） &gt;</li>
+</ul>
+</li>
+<li>模板函数<ul>
+<li>把定义的函数模板进行实例化</li>
+</ul>
+</li>
+<li>类模板<ul>
+<li>声明为模板类后他的函数定义也需要声明为函数模板</li>
+<li>使用类模板的时候需要把类的定义和方法的实现都写在头文件里面，不然编译会报错</li>
+</ul>
+</li>
+<li>模板类<ul>
+<li>实例化一个类模板</li>
+</ul>
+</li>
+</ul>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>对数组的封装</p>
+<p>读取能在常数时间完成</p>
+<p>遍历vector：</p>
+<ul>
+<li><p>for循环</p>
+</li>
+<li><p>iterator迭代器循环</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Vector vec;</span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">    vector&lt;string&gt;::iterator citer = vec.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">for</span>(;citer!=vec.<span class="built_in">end</span>();citer++)&#123;</span><br><span class="line">        cout&lt;&lt;*citer&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>插入速度快，查询速度慢</p>
+<p>函数跟上面那个一样</p>
+<p>list的插入函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list&lt;<span class="type">int</span>&gt; list1;</span><br><span class="line">list&lt;<span class="type">int</span>&gt;::iterator iter = list1.<span class="built_in">begin</span>();</span><br><span class="line">list1.<span class="built_in">insert</span>(iter,<span class="number">4</span>);<span class="comment">//在iter对象前面插入一个4</span></span><br><span class="line">list1.<span class="built_in">insert</span>(iter,<span class="number">4</span>，<span class="number">1</span>);<span class="comment">//在iter对象前面插入四个1</span></span><br><span class="line"><span class="function">list&lt;<span class="type">int</span> &gt; <span class="title">list2</span><span class="params">(<span class="number">3</span>,<span class="number">5</span>)</span></span>;<span class="comment">//创建一个list2链表对象，并且初始化为3个5</span></span><br><span class="line">list1.<span class="built_in">insert</span>(iter,list2.<span class="built_in">begin</span>(),list2.<span class="built_in">end</span>());<span class="comment">//将list2插入到list1中，第二个参数为起始，第三个为终止</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>键值对</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string,string&gt; map1;</span><br><span class="line"><span class="function">pair&lt;string,string&gt; <span class="title">p1</span><span class="params">(<span class="string">&quot;蔡徐坤&quot;</span>,<span class="string">&quot;偶像练习生&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">pair&lt;string,string&gt; <span class="title">p2</span><span class="params">(<span class="string">&quot;吴亦凡&quot;</span>,<span class="string">&quot;大傻逼&quot;</span>)</span></span>;</span><br><span class="line">map&lt;string,string&gt;::iterator iter = map.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span>(;iter!map.<span class="built_in">end</span>();iter++)&#123;</span><br><span class="line">    cout&lt;&lt;(*iter).first&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的博客</a></span>
+        <span>/</span>
+        
+        <span><a href="https://yuzhenpei.github.io">Anyu的页面</a></span>
+        <span>/</span>
+        
+        <span><a href="#"></a></span>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">浙ICP备16035324号-1</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
